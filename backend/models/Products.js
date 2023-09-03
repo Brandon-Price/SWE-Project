@@ -9,7 +9,7 @@ const ProductSchema = new mongoose.Schema(
         size:{type: Array},
         colors:{type: Array},
         price:{type: Number, required:true},
-        availability: {type:Boolean, default: true}
+        quantity: {type: Number, default: 1}
     },
     {timestamps: true});
 
