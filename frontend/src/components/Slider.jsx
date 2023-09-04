@@ -75,7 +75,7 @@ const Image = styled.img`
 `
 
 const Slider = () => {
-    const [slideIndex, setSlideIndex] = useState;
+    //const [slideIndex, setSlideIndex] = useState;
     const handleClick = (direction) => {
 
     }
