@@ -72,8 +72,7 @@ const Navbar = () => {
                     </SearchContainer>
                 </Center>
                 <Right>
-                    <Menu>Register</Menu>
-                    <Menu>Sign In</Menu>
+                    <Menu>Register/Sign In</Menu>
                     <Menu>
                         <Badge badgeContent={4} color = "primary">
                             <ShoppingCartOutlined/>
