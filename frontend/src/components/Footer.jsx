@@ -4,8 +4,7 @@ import { Facebook, Twitter, Instagram } from "@material-ui/icons";
 // Footer contains the socials, and links to the other pages, so that the user
 // doesn't have to scroll back up
 
-const Container = styled.div`
-    position: absolute;
+const Container = styled.footer`
     left: 0;
     bottom: 0;
     right: 0;

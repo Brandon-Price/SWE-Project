@@ -33,6 +33,7 @@ const Left = styled.div`
 
 const SearchContainer = styled.div`
     border: .5px solid lightgray;
+    border-radius: 20px;
     display: flex;
     align-items: center;
     width: 360px;

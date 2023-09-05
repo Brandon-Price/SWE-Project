@@ -9,6 +9,7 @@ const Container = styled.div`
     display: flex;
     margin-right: auto;
     flex-wrap: wrap;
+    margin-bottom: 200px;
     justify-content: space-between;
 `
 
