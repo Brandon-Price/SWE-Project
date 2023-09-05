@@ -22,6 +22,19 @@ const FilterContainer = styled.div`
 const Filter = styled.div`
     margin: 20px;
 `
+const FilterText = styled.span`
+    font-size: 20px;
+    font-weight: 600;
+    margin-right: 20px;
+`
+
+const Select = styled.select`
+    padding: 10px;
+    margin-right: 20px;
+    border-radius: 20px;
+`
+
+const Option = styled.option``
 
 const ItemList = () => {
     return(
@@ -30,8 +43,21 @@ const ItemList = () => {
             <SubHeader/>
             <Header>Mugs</Header>
             <FilterContainer>
-                <Filter>f1</Filter>
-                <Filter>f2</Filter>
+                <Filter>
+                    <FilterText>Product Filter:</FilterText>
+                    <Select>
+                        <Option disable selected>Filter</Option>
+                        <Option>Country</Option>
+                        <Option>City</Option>
+                    </Select>
+                </Filter>
+                <Filter>
+                    <FilterText>Product Sort:</FilterText>
+                    <Select>
+                        <Option selected>Price Ascending</Option>
+                        <Option>Price Descending</Option>
+                    </Select>
+                </Filter>
             </FilterContainer>
             <Products/>
             <Footer/>
