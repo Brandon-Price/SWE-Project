@@ -22,8 +22,7 @@ const Container = styled.div`
     flex: 1;
     padding: 15px;
     margin: 50px;
-    max-width: 350px;
-    min-width: 280px;
+    width: 280px;
     display: flex;
     align-items: center;
     justify-content: center;
