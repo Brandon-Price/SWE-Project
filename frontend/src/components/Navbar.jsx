@@ -9,7 +9,8 @@ const Container = styled.nav`
     position: sticky;
     top: 0;
     z-index: 999;
-    height: 50px;
+    height: 10%;
+    width: 100%;
     background-color: white;
 `
 
@@ -31,12 +32,22 @@ const SearchContainer = styled.div`
     border: .5px solid lightgray;
     display: flex;
     align-items: center;
+    width: 360px;
+    height: 24px;
     margin-left: 25px;
     padding: 5px;
+    background: #f2f2f2;
+    transition: all .3s ease;
 `
 
 const Input = styled.input`
     border: none;
+    height: 100%;
+    width: 100%;
+    color: gray;
+    outline: none;
+    font-size: 16px;
+    background-color: transparent; 
 `
 
 const Center = styled.div`
@@ -71,8 +82,8 @@ const Navbar = () => {
                 </Left>
                 <Center>
                     <SearchContainer>
+                        <Search style ={{color: "gray", fontSize:20}}/>
                         <Input/>
-                        <Search style ={{color: "black", fontSize:20}}/>
                     </SearchContainer>
                 </Center>
                 <Right>

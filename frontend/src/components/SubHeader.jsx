@@ -3,6 +3,7 @@ import {InfoOutlined} from '@material-ui/icons';
 
 const Container = styled.div`
     height: 100px;
+    width: 100%;
     background-color: white;
 `
 

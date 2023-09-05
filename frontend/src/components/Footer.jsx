@@ -3,24 +3,25 @@ import { Facebook, Twitter, Instagram } from "@material-ui/icons";
 
 const Container = styled.div`
     display: flex;
+    width: 100%;
     background-color: #555555;
 `
 const Left = styled.div`
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 1%;
 `
 
 
 const UsefulLinks = styled.h3`
-    margin-bottom: 10px;
+    margin-bottom: 1.5%;
     color: white;
 `
 
 const Links = styled.ul`
-    margin: 0;
-    padding: 0;
+    margin: 0%;
+    padding: 0%;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -28,7 +29,7 @@ const Links = styled.ul`
 
 const LinksList = styled.li`
     width: 40%;
-    margin-bottom: 0px;
+    margin-bottom: 0%;
     color: white;
 `
 
@@ -36,7 +37,7 @@ const Logo = styled.h1`
     color: white;
     display: flex;
     align-items: center;
-    margin: 20px;
+    margin: 4%;
 `
 
 const SocialContainer = styled.div`
@@ -44,9 +45,9 @@ const SocialContainer = styled.div`
 `
 
 const SocialIcon = styled.div`
-    width: 40px;
-    height: 40px;
-    border-radius: 40%;
+    width: 100%;
+    height: 100%;
+    border-radius: 20%;
     color: white;
     background-color: #${props => props.color};
     display: flex;
