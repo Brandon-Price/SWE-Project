@@ -1,12 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import {Search, ShoppingCartOutlined} from '@material-ui/icons';
+import {Search, ShoppingCartOutlined, } from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
 
 // Using style components for the site
 // Don't need a style js file
-const Container = styled.div`
-    height: 60px;
+const Container = styled.nav`
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    height: 50px;
+    background-color: white;
 `
 
 const Wrapper = styled.div`
@@ -20,6 +24,7 @@ const Left = styled.div`
     flex:1;
     display: flex;
     align-items: center;
+    padding: 0px 11px;
 `
 
 const SearchContainer = styled.div`
@@ -32,11 +37,10 @@ const SearchContainer = styled.div`
 
 const Input = styled.input`
     border: none;
-    margin-left: 50px;
 `
 
 const Center = styled.div`
-    flex:.5;
+    display: flex;
     text-align: center;
 `
 
@@ -52,7 +56,7 @@ const Logo = styled.h1`
 `
 
 const Menu = styled.div`
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     margin-left: 20px;
 `
