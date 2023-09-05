@@ -4,6 +4,8 @@ import Navbar from '../components/Navbar';
 import Slider from '../components/Slider';
 import Footer from '../components/Footer';
 
+// Main Page? For now it is
+
 const Home = () => {
     return (
         <div>

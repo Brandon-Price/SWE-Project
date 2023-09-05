@@ -5,6 +5,9 @@ import {Badge} from '@material-ui/core';
 
 // Using style components for the site
 // Don't need a style js file
+// Navbar has the sites different pages
+// Its also a sticky navbar so when you scroll it follows
+
 const Container = styled.nav`
     position: sticky;
     top: 0;

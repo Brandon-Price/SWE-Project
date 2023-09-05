@@ -1,7 +1,14 @@
 import styled from "styled-components";
 import { Facebook, Twitter, Instagram } from "@material-ui/icons";
 
+// Footer contains the socials, and links to the other pages, so that the user
+// doesn't have to scroll back up
+
 const Container = styled.div`
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
     display: flex;
     width: 100%;
     background-color: #555555;
@@ -12,7 +19,6 @@ const Left = styled.div`
     flex-direction: column;
     padding: 1%;
 `
-
 
 const UsefulLinks = styled.h3`
     margin-bottom: 1.5%;

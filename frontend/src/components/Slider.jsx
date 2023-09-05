@@ -3,6 +3,8 @@ import React, {useEffect, useState} from "react";
 import { NavigateBeforeOutlined, NavigateNextOutlined } from "@material-ui/icons";
 import { sliderItems } from "../data";
 
+// Slider is the carousel with the images and the arrows. 
+
 const Container = styled.div`
     width: 100%;
     height: 100vh;
@@ -97,7 +99,7 @@ const Slider = () => {
             </Arrow>
             <Wrapper slideIndex = {slideIndex}>
                 {sliderItems.map(item=>(
-                    <SlideContainer bg = {item.bg}>
+                    <SlideContainer bg = {item.bg} key={item.id}>
                     <ImageContainer>
                         <Image src={item.img}/>
                     </ImageContainer>

@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import {InfoOutlined} from '@material-ui/icons';
 
+// The subheader contains the pages to go around the site
+
 const Container = styled.div`
     height: 100px;
     width: 100%;
