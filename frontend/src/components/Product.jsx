@@ -16,14 +16,14 @@ const Info = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-
 `
 
 const Container = styled.div`
     flex: 1;
-    margin: 5px;
+    padding: 15px;
+    margin: 50px;
+    max-width: 350px;
     min-width: 280px;
-    height: 350px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,29 +36,9 @@ const Container = styled.div`
 `
 
 const Image = styled.img`
-    height: 100%;
     z-index: 2;
-    object-fit: cover;
-`
-
-const Icon = styled.div`
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: white;
-    color: #c04547;
-    border-color: #c04547;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 10px;
-    transition: all .5s ease;
-
-    &:hover{
-        background-color: #c04547;
-        color: white;
-        transform: scale(1.2);
-    }
+    height: 250px;
+    object-fit: contain;
 `
 
 const Button = styled.button`
@@ -79,6 +59,26 @@ const Button = styled.button`
     }
 `
 
+const IconButton = styled.button`
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    color: #c04547;
+    border-color: #c04547;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    transition: all .5s ease;
+
+    &:hover{
+        background-color: #c04547;
+        color: white;
+        transform: scale(1.2);
+    }
+`
+
 
 const Product = ({item}) => {
     return (
@@ -86,9 +86,9 @@ const Product = ({item}) => {
             <Image src={item.img}/>
             <Info>
                 <Button>Quick Add</Button>
-                <Icon>
+                <IconButton>
                     <SearchOutlined/>
-                </Icon>
+                </IconButton>
             </Info>
         </Container>
     )

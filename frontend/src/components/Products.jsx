@@ -7,7 +7,6 @@ import { products } from "../data";
 const Container = styled.div`
     padding: 20px;
     display: flex;
-    margin-right: auto;
     flex-wrap: wrap;
     margin-bottom: 200px;
     justify-content: space-between;
