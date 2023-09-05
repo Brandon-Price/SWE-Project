@@ -4,6 +4,10 @@ import styled from "styled-components"
 // This file is for handling the individual product items and how they
 // will appear and their containers.
 
+// Blue Color Code #497dc8
+// Red Color Code #c04547
+// Green Color Code #3fa24f
+
 const Info = styled.div`
     opacity: 0;
     width: 100%;
