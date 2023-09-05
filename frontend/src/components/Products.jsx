@@ -11,6 +11,7 @@ const Container = styled.div`
     flex-wrap: wrap;
     margin-bottom: 200px;
     justify-content: space-between;
+    overflow:hidden;
 `
 
 const Products = () => {

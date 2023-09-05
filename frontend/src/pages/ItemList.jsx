@@ -32,7 +32,6 @@ const ItemList = () => {
             <FilterContainer>
                 <Filter>f1</Filter>
                 <Filter>f2</Filter>
-                <Filter>f3</Filter>
             </FilterContainer>
             <Products/>
             <Footer/>

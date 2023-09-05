@@ -46,5 +46,20 @@ export const products = [
     {
         id: 4,
         img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg"
+    },
+
+    {
+        id: 5,
+        img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg"
+    },
+
+    {
+        id: 6,
+        img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg"
+    },
+
+    {
+        id: 7,
+        img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg"
     }
 ]
