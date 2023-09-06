@@ -6,6 +6,7 @@ import { Facebook, Twitter, Instagram } from "@material-ui/icons";
 
 const Container = styled.footer`
     left: 0;
+    position: relative;
     bottom: 0;
     right: 0;
     display: flex;
@@ -18,6 +19,7 @@ const Left = styled.div`
     flex-direction: column;
     padding: 1%;
 `
+
 
 const UsefulLinks = styled.h3`
     margin-bottom: 1.5%;

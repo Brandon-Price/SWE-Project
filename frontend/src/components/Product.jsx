@@ -1,4 +1,4 @@
-import { SearchOutlined, ShoppingCartOutlined, StarBorderOutlined } from "@material-ui/icons"
+import { SearchOutlined } from "@material-ui/icons"
 import styled from "styled-components"
 
 // This file is for handling the individual product items and how they
