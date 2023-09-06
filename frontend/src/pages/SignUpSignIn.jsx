@@ -12,9 +12,10 @@ const Container = styled.div`
 `
 
 const Line = styled.div`
-    background-color: black;
+    background-color: gray;
     height: 34%;
     width: 1;
+    color: gray;
 `
 
 const LeftContainer = styled.div`
