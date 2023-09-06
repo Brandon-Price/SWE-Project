@@ -39,6 +39,8 @@ const Wrapper = styled.div`
 const Title = styled.h1`
     font-size: 24px;
     font-weight: 300;
+    margin-left: 10px;
+    margin-bottom: 5px;
 `
 
 const Form = styled.form`
@@ -77,6 +79,7 @@ const Button = styled.button`
     transition: all .5s ease;
     border-radius: 15px;
     z-index: 4;
+    margin-left: 5px;
 
     &:hover {
         transform: scale(1.1);
