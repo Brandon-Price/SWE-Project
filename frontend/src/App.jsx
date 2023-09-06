@@ -1,11 +1,11 @@
 //import Item from "./pages/Item";
 //import Home from "./pages/Home";
 //import ItemList from "./pages/ItemList";
-//import Cart from "./pages/Cart";
-import SignUpSignIn from "./pages/SignUpSignIn";
+import ShoppingCart from "./pages/ShoppingCart";
+//import SignUpSignIn from "./pages/SignUpSignIn";
 
 const App = () => {
-  return <SignUpSignIn/>;
+  return <ShoppingCart/>;
 };
 
 export default App;
