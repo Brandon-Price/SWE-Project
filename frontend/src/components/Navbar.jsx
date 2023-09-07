@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import {Search, ShoppingCartOutlined, } from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
+import {mobile} from "../components/responsive";
 
 // Using style components for the site
 // Don't need a style js file
@@ -15,6 +16,7 @@ const Container = styled.nav`
     height: 10%;
     width: 100%;
     background-color: white;
+    ${mobile({height: "50px"})}
 `
 
 const Wrapper = styled.div`
@@ -22,6 +24,7 @@ const Wrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    ${mobile({padding: "10px 0px"})}
 `
 
 const Left = styled.div`
@@ -42,6 +45,7 @@ const SearchContainer = styled.div`
     padding: 5px;
     background: #f2f2f2;
     transition: all .3s ease;
+    ${mobile({width: "80px"})}
 `
 
 const Input = styled.input`
@@ -52,6 +56,7 @@ const Input = styled.input`
     outline: none;
     font-size: 16px;
     background-color: transparent; 
+    ${mobile({width: "50px"})}
 `
 
 const Center = styled.div`
@@ -68,6 +73,7 @@ const Right = styled.div`
 
 const Logo = styled.h1`
     font-weight:bold;
+    ${mobile({fontSize: "24px"})}
 `
 
 const Menu = styled.div`
