@@ -31,7 +31,6 @@ const Right = styled.div`
     align-items: center;
     justify-content: flex-end;
     padding: 10px 10px;
-    
 `
 
 const Menu = styled.div`
