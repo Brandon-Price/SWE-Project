@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import SubHeader from "../components/SubHeader";
 import Footer from "../components/Footer";
 import Products from "../components/Products";
-import {} from "../styles/ItemList.styles";
+import {Container, Header, FilterContainer, Filter, FilterText, Select, Option} from "../styles/ItemList.styles";
 
 // Will be handling the item filters and their containers
 
