@@ -1,9 +1,9 @@
-//import Item from "./pages/Item";
+import Item from "./pages/Item";
 import Home from "./pages/Home";
-//import ItemList from "./pages/ItemList";
+import ItemList from "./pages/ItemList";
 import { useEffect } from "react";
 import ShoppingCart from "./pages/ShoppingCart";
-//import SignUpSignIn from "./pages/SignUpSignIn";
+import SignUpSignIn from "./pages/SignUpSignIn";
 import Success from "./pages/Success";
 import {
   BrowserRouter as Router,
@@ -26,16 +26,16 @@ const App = () => {
 
   return (
     <Router>
-        <Switch>
           <Routes>
-            <Route path="/">
-              <Home/>
-            </Route>
+            <Route exact path="/" element={<Home/>}/>
+            <Route path="/products" element={<ItemList/>}/>
+            <Route path="/products/:id" element={<Item/>}/>
+            <Route path="/cart" element={<ShoppingCart/>}/>
+            <Route path="/account-log-in-sign-up" element={<SignUpSignIn/>}/>
+            <Route path="/success" element={<Success/>}/>
           </Routes>
-        </Switch>
     </Router>
   )
-    // return <ShoppingCart/>;
 };
 
 export default App;
