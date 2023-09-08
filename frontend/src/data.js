@@ -30,41 +30,49 @@ export const sliderItems = [
 export const products = [
     {
         id: 1,
-        img: "https://starbucks-mugs.com/wp-content/uploads/2022/11/btc_philippines_main_786.jpg" 
+        img: "https://starbucks-mugs.com/wp-content/uploads/2022/11/btc_philippines_main_786.jpg",
+        categories: "country", 
     },
 
     {
         id: 2,
-        img: "https://m.media-amazon.com/images/I/81MRyEVLiaL.jpg"
+        img: "https://m.media-amazon.com/images/I/81MRyEVLiaL.jpg",
+        categories: "city",
     },
 
     {
         id: 3,
-        img: "https://di2ponv0v5otw.cloudfront.net/posts/2023/04/11/6435dc96ffb5d05cfeb51d02/m_6435dcc581078a636c3823eb.jpg"
+        img: "https://di2ponv0v5otw.cloudfront.net/posts/2023/04/11/6435dc96ffb5d05cfeb51d02/m_6435dcc581078a636c3823eb.jpg",
+        categories: "city",
     },
 
     {
         id: 4,
-        img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg"
+        img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg",
+        categories: "city",
     },
 
     {
         id: 5,
-        img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg"
+        img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg",
+        categories: "city",
     },
 
     {
         id: 6,
-        img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg"
+        img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg",
+        categories: "city",
     },
 
     {
         id: 7,
-        img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg"
+        img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg",
+        categories: "city",
     },
 
     {
         id: 8,
-        img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg"
+        img: "https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg",
+        categories: "city",
     }
 ]

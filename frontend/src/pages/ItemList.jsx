@@ -3,10 +3,23 @@ import SubHeader from "../components/SubHeader";
 import Footer from "../components/Footer";
 import Products from "../components/Products";
 import {Container, Header, FilterContainer, Filter, FilterText, Select, Option} from "../styles/ItemList.styles";
+import { useState } from "react";
 
 // Will be handling the item filters and their containers
 
 const ItemList = () => {
+    const [filter, setFilter] = useState({});
+
+    const handleFilter = (event) => {
+        const value = event.target.value;
+        setFilter({
+            ...filter,
+            [event.targe.name]: value,
+        });
+    };
+
+    console.log(filter);
+
     return(
         <Container>
             <Navbar/>
@@ -15,8 +28,8 @@ const ItemList = () => {
             <FilterContainer>
                 <Filter>
                     <FilterText>Product Filter:</FilterText>
-                    <Select>
-                        <Option disable selected>Filter</Option>
+                    <Select onChange={handleFilter}>
+                        <Option disabled>Filter</Option>
                         <Option>Country</Option>
                         <Option>City</Option>
                     </Select>
@@ -24,12 +37,12 @@ const ItemList = () => {
                 <Filter>
                     <FilterText>Product Sort:</FilterText>
                     <Select>
-                        <Option selected>Price Ascending</Option>
+                        <Option>Price Ascending</Option>
                         <Option>Price Descending</Option>
                     </Select>
                 </Filter>
             </FilterContainer>
-            <Products/>
+            <Products filter={filter}/>
             <Footer/>
         </Container>
     )

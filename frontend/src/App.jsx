@@ -7,14 +7,13 @@ import SignUpSignIn from "./pages/SignUpSignIn";
 import Success from "./pages/Success";
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
   Routes,
-  Redirect,
+  Navigate,
 } from "react-router-dom";
 
 const App = () => {
-
+  const user = true;
   useEffect(() => {
 
     // load in assets from database here (code runs on first load/render)
@@ -31,7 +30,7 @@ const App = () => {
             <Route path="/products" element={<ItemList/>}/>
             <Route path="/products/:id" element={<Item/>}/>
             <Route path="/cart" element={<ShoppingCart/>}/>
-            <Route path="/account-log-in-sign-up" element={<SignUpSignIn/>}/>
+            <Route path="/account-log-in-sign-up" element={user ? <Navigate to="/"/> : <SignUpSignIn/>}/>
             <Route path="/success" element={<Success/>}/>
           </Routes>
     </Router>
