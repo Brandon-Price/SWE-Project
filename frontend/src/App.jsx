@@ -5,13 +5,13 @@ import { useEffect } from "react";
 import ShoppingCart from "./pages/ShoppingCart";
 //import SignUpSignIn from "./pages/SignUpSignIn";
 import Success from "./pages/Success";
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Routes,
-//   Redirect,
-// } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Routes,
+  Redirect,
+} from "react-router-dom";
 
 const App = () => {
 
@@ -24,18 +24,15 @@ const App = () => {
   }, []);
   
 
-  // return (
-  //   <Router>
-  //       {/* <Route path="/pay">
-  //           <Pay/>
-  //       </Route> */}
-  //       <Routes>
-  //         <Route path="/success">
-  //           <Success/>
-  //         </Route>
-  //       </Routes>
-  //   </Router>
-    return <ShoppingCart/>;
+  return (
+    <Router>
+        <Routes>
+          <Route path="/" element = {<ShoppingCart/>} >
+          </Route>
+        </Routes>
+    </Router>
+  )
+    // return <ShoppingCart/>;
 };
 
 export default App;
