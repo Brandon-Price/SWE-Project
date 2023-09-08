@@ -18,6 +18,8 @@ const App = () => {
   useEffect(() => {
 
     // load in assets from database here (code runs on first load/render)
+    // (it would be a good idea to have effect hooks in each component that needs to be dynamically loaded instead of freezing up the whole
+    // application here, but just for like proof of concept for now lol)
   
   }, []);
   
