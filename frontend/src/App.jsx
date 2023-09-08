@@ -1,7 +1,8 @@
 //import Item from "./pages/Item";
 //import Home from "./pages/Home";
 //import ItemList from "./pages/ItemList";
-//import ShoppingCart from "./pages/ShoppingCart";
+import { useEffect } from "react";
+import ShoppingCart from "./pages/ShoppingCart";
 //import SignUpSignIn from "./pages/SignUpSignIn";
 import Success from "./pages/Success";
 // import {
@@ -13,6 +14,14 @@ import Success from "./pages/Success";
 // } from "react-router-dom";
 
 const App = () => {
+
+  useEffect(() => {
+
+    // load in assets from database here (code runs on first load/render)
+  
+  }, []);
+  
+
   // return (
   //   <Router>
   //       {/* <Route path="/pay">
@@ -24,7 +33,7 @@ const App = () => {
   //         </Route>
   //       </Routes>
   //   </Router>
-    return <Success/>;
+    return <ShoppingCart/>;
 };
 
 export default App;
