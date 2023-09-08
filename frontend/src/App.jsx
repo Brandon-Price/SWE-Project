@@ -1,5 +1,5 @@
 //import Item from "./pages/Item";
-//import Home from "./pages/Home";
+import Home from "./pages/Home";
 //import ItemList from "./pages/ItemList";
 import { useEffect } from "react";
 import ShoppingCart from "./pages/ShoppingCart";
@@ -26,10 +26,13 @@ const App = () => {
 
   return (
     <Router>
-        <Routes>
-          <Route path="/" element = {<ShoppingCart/>} >
-          </Route>
-        </Routes>
+        <Switch>
+          <Routes>
+            <Route path="/">
+              <Home/>
+            </Route>
+          </Routes>
+        </Switch>
     </Router>
   )
     // return <ShoppingCart/>;
