@@ -1,10 +1,20 @@
 import Navbar from "../components/Navbar";
 import SubHeader from "../components/SubHeader";
 import Footer from "../components/Footer";
+import { useState, useEffect } from "react";
 import {Add, Remove } from "@material-ui/icons";
 import {Container, Wrapper, ImgContainer, InfoContainer, Image, Title, Desc, Price, AddtoCart, AmountContainer, Amount, Button} from "../styles/Item.styles"
 
 const Item = () => {
+
+    const [items, setItems] = useState();
+    useEffect(() => {
+
+        // load in mug info here into state variable, pass as needed below
+        // setItems( *data from database* );
+      
+      }, []);
+
     return (
         <Container>
             <Navbar/>
