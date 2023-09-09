@@ -1,6 +1,6 @@
 import {InfoOutlined} from '@material-ui/icons';
-import {Container, Wrapper, Left, Right, Menu, Menu2} from "../styles/SubHeader.styles";
-import { Link } from 'react-router-dom';
+import {MenuLink, Container, Wrapper, Left, Right, Menu, Menu2} from "../styles/SubHeader.styles";
+
 
 // The subheader contains the pages to go around the site
 
@@ -10,15 +10,15 @@ const SubHeader = () => {
         <Container>
             <Wrapper>
                 <Left>
-                    <Link to="/">
+                    <MenuLink to="/">
                         <Menu>Home</Menu>
-                    </Link>
-                    <Link to="/products">
+                    </MenuLink>
+                    <MenuLink to="/products">
                         <Menu>Products</Menu>
-                    </Link>
-                    <Link>
+                    </MenuLink>
+                    <MenuLink>
                         <Menu>Order History</Menu>
-                    </Link>
+                    </MenuLink>
                 </Left>
                 <Right>
                     <InfoOutlined style ={{color: "black", fontSize:20}}/>

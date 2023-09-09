@@ -1,7 +1,8 @@
 import React from "react";
 import {Search, ShoppingCartOutlined, } from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
-import {Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu} from "../styles/Navbar.styles.jsx"
+import {MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu} from "../styles/Navbar.styles.jsx"
+
 
 // Using style components for the site
 // Don't need a style js file
@@ -23,11 +24,15 @@ const Navbar = () => {
                     </SearchContainer>
                 </Center>
                 <Right>
-                    <Menu>Register/Sign In</Menu>
+                    <MenuLink to="/account-log-in-sign-up">
+                        <Menu>Register/Sign In</Menu>
+                    </MenuLink>
                     <Menu>
-                        <Badge badgeContent={4} color = "primary">
-                            <ShoppingCartOutlined/>
-                        </Badge>
+                        <MenuLink to="/cart">
+                            <Badge badgeContent={4} color = "primary">
+                                <ShoppingCartOutlined/>
+                            </Badge>
+                        </MenuLink>
                     </Menu>
                 </Right>
             </Wrapper>

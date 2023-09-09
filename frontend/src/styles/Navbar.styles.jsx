@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import {mobile} from "../components/responsive";
+import { Link } from "react-router-dom";
 
 export const Container = styled.nav`
     position: sticky;
@@ -72,4 +73,13 @@ export const Menu = styled.div`
     font-size: 16px;
     cursor: pointer;
     margin-left: 20px;
+`
+
+export const MenuLink = styled(Link)`
+    color: black;
+    text-decoration: none;
+
+    &:hover, &:focus{
+        text-decoration: underline;
+    }
 `

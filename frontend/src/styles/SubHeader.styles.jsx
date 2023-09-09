@@ -1,4 +1,5 @@
-import styled from "styled-components"
+import styled from "styled-components";
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
     height: 100px;
@@ -34,6 +35,15 @@ export const Menu = styled.div`
     font-size: 16px;
     cursor: pointer;
     margin-left: 20px;
+`
+
+export const MenuLink = styled(Link)`
+    color: black;
+    text-decoration: none;
+
+    &:hover, &:focus{
+        text-decoration: underline;
+    }
 `
 
 export const Menu2 = styled.div`
