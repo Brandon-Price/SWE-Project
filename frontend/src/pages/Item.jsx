@@ -11,7 +11,7 @@ const Item = () => {
     useEffect(() => {
 
         // load in mug info here into state variable, pass as needed below
-        // 
+        // setItems( *data from database* );
       
       }, []);
 

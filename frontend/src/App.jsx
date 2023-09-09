@@ -18,11 +18,11 @@ const App = () => {
   useEffect(() => {
 
     // load in user and their cart info here into the user state variables, pass those into components below
-    // 
+    // setUser( *data from database* );
   
   }, []);
   
-  const ifUser = true; // switch this to checking if user state is null one implemented
+  const ifUser = true; // switch this to checking if user state is null once implemented
 
   return (
     <Router>
