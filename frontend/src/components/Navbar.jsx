@@ -29,7 +29,7 @@ const Navbar = () => {
                     </MenuLink>
                     <Menu>
                         <MenuLink to="/cart">
-                            <Badge badgeContent={4} color = "primary">
+                            <Badge badgeContent={4} color = "primary" overlap="rectangular">
                                 <ShoppingCartOutlined/>
                             </Badge>
                         </MenuLink>

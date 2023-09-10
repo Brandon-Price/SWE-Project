@@ -4,18 +4,20 @@ import Footer from "../components/Footer";
 import Products from "../components/Products";
 import {Container, Header, FilterContainer, Filter, FilterText, Select, Option} from "../styles/ItemList.styles";
 import { useState } from "react";
-//import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 // Will be handling the item filters and their containers
 
 const ItemList = () => {
-    const [filter, setFilter] = useState({});
+    const location = useLocation();
+    const cat = location.pathname.split("/")[2];
+    const [filters, setFilter] = useState({});
     const [sort, setSort] = useState("Price Ascending");
 
     const handleFilter = (e) => {
         const value = e.target.value;
         setFilter({
-            ...filter,
+            ...filters,
             [e.target.name]: value,
         });
     };
@@ -28,10 +30,10 @@ const ItemList = () => {
             <FilterContainer>
                 <Filter>
                     <FilterText>Product Filter:</FilterText>
-                    <Select name="category" onChange={handleFilter}>
-                        <Option hidden>Filter</Option>
-                        <Option value="country">Country</Option>
-                        <Option value="city">City</Option>
+                    <Select name="category" onChange={handleFilter} defaultValue={"hidden"}>
+                        <Option value="hidden" disabled="disabled">Filter</Option>
+                        <Option value="country">country</Option>
+                        <Option value="city">city</Option>
                     </Select>
                 </Filter>
                 <Filter>
@@ -42,7 +44,7 @@ const ItemList = () => {
                     </Select>
                 </Filter>
             </FilterContainer>
-            <Products filter={filter} sort={sort}/>
+            <Products cat = {cat} filters={filters} sort={sort}/>
             <Footer/>
         </Container>
     )

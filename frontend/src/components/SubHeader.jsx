@@ -13,7 +13,7 @@ const SubHeader = () => {
                     <MenuLink to="/">
                         <Menu>Home</Menu>
                     </MenuLink>
-                    <MenuLink to="/products">
+                    <MenuLink to="/products/">
                         <Menu>Products</Menu>
                     </MenuLink>
                     <MenuLink>

@@ -28,7 +28,7 @@ const App = () => {
     <Router>
           <Routes>
             <Route exact path="/" element={<Home/>}/>
-            <Route path="/products" element={<ItemList/>}/>
+            <Route path="/products/" element={<ItemList/>}/>
             <Route path="/products/:id" element={<Item/>}/>
             <Route path="/cart" element={<ShoppingCart/>}/>
             <Route path="/account-log-in-sign-up" element={ifUser ? <Navigate to="/"/> : <SignUpSignIn/>}/>
