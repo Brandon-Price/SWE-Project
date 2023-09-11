@@ -38,9 +38,9 @@ const Products = ({cat, filters, sort}) => {
         setFilters(
             products.filter((item) =>
                 Object.entries(filters).every(([key, value]) =>
-                    item[key].includes(value)
-                )
-            )
+                    item[key] == value
+              )
+        )
         );
     }, [products, filters]);
 

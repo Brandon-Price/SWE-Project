@@ -6,8 +6,10 @@ import {Container, Wrapper, Top, TopTexts, TopText, Title, Bottom, Info, Product
     ProductDetails, ProductName, ProductID, ProductPrice, PriceContainer, Quantity, Price, Hr, SmallLine,
     CartSummary, SummaryTitle, SummaryItem, SummaryItemText,
     SummaryItemPrice, Button, EmptyContainer, Line} from "../styles/ShoppingCart.styles";
+import { useSelector } from "react-redux";
 
 const ShoppingCart = () => {
+    const cart = useSelector(state => state.cart)
     return (
         <Container>
             <Navbar/>
@@ -22,23 +24,24 @@ const ShoppingCart = () => {
                 </Top>
                 <Bottom>
                     <Info>
-                    <Product>
+                        { cart.products.map(product => (
+                        <Product>
                             <ProductInfo>
-                                <Image src="https://starbucks-mugs.com/wp-content/uploads/2022/11/btc_philippines_main_786.jpg"/>
+                                <Image src={product.img}/>
                                 <ProductDetails>
-                                    <ProductName><b>Item: </b>Philippines Mug</ProductName>
-                                    <ProductID><b>Item ID: </b>1</ProductID>
+                                    <ProductName><b>Item: </b>{product.title}</ProductName>
+                                    <ProductID><b>Item ID: </b>{product._id}</ProductID>
                                 </ProductDetails>
                             </ProductInfo>
                             <ProductPrice>
                                 <PriceContainer>
                                     <Remove/>
-                                    <Quantity>4</Quantity>
+                                    <Quantity>{cart.quantity}</Quantity>
                                     <Add/>
                                 </PriceContainer>
-                                <Price>$ 20.99</Price>
+                                <Price>$ {product.price * cart.quantity}</Price>
                             </ProductPrice>
-                        </Product>
+                        </Product>))}
                         <Hr/>
                         <Product>
                             <ProductInfo>

@@ -1,6 +1,7 @@
 import React from "react";
 import {Search, ShoppingCartOutlined, } from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
+import {useSelector} from "react-redux";
 import {MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu} from "../styles/Navbar.styles.jsx"
 
 
@@ -11,6 +12,9 @@ import {MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Righ
 
 // Creating navigation bar
 const Navbar = () => {
+    const cartItems = useSelector(state => state.cart.quantity);
+    console.log(cartItems)
+
     return (
         <Container>
             <Wrapper>
@@ -29,7 +33,7 @@ const Navbar = () => {
                     </MenuLink>
                     <Menu>
                         <MenuLink to="/cart">
-                            <Badge badgeContent={4} color = "primary" overlap="rectangular">
+                            <Badge badgeContent={cartItems} color = "primary" overlap="rectangular">
                                 <ShoppingCartOutlined/>
                             </Badge>
                         </MenuLink>

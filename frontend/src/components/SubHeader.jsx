@@ -22,7 +22,9 @@ const SubHeader = () => {
                 </Left>
                 <Right>
                     <InfoOutlined style ={{color: "black", fontSize:20}}/>
-                    <Menu2>Help Center</Menu2>
+                    <MenuLink to="/help-center">
+                        <Menu2>Help Center</Menu2>
+                    </MenuLink>
                 </Right>
             </Wrapper>
         </Container>

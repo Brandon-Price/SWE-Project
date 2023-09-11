@@ -35,7 +35,11 @@ export const Desc = styled.p`
 export const Price = styled.span`
     font-weight: 100;
     font-size: 40px;
+`
 
+export const Quantity = styled.span`
+    font-weight: 200;
+    font-size: 20px;
 `
 
 export const AddtoCart = styled.div`

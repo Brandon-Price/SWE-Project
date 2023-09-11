@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import SubHeader from "../components/SubHeader";
 import Footer from "../components/Footer";
 import Products from "../components/Products";
-import {Container, Header, FilterContainer, Filter, FilterText, Select, Option} from "../styles/ItemList.styles";
+import {Container, Header, FilterContainer, Filter, FilterText, Select, Option, EmptyContainer} from "../styles/ItemList.styles";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -45,6 +45,7 @@ const ItemList = () => {
                 </Filter>
             </FilterContainer>
             <Products cat = {cat} filters={filters} sort={sort}/>
+            <EmptyContainer/>
             <Footer/>
         </Container>
     )
