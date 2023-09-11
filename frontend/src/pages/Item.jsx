@@ -3,17 +3,24 @@ import SubHeader from "../components/SubHeader";
 import Footer from "../components/Footer";
 import { useState, useEffect } from "react";
 import {Add, Remove } from "@material-ui/icons";
+import { useLocation } from "react-router-dom";
+import { publicRequest } from "../request";
 import {Container, Wrapper, ImgContainer, InfoContainer, Image, Title, Desc, Price, AddtoCart, AmountContainer, Amount, Button} from "../styles/Item.styles"
 
 const Item = () => {
+    const location = useLocation();
+    const id = location.pathname.split("/")[2];
+    const [items, setItems] = useState({});
 
-    const [items, setItems] = useState();
     useEffect(() => {
-
-        // load in mug info here into state variable, pass as needed below
-        // setItems( *data from database* );
-      
-      }, []);
+        const getItem = async () =>{
+            try{
+                const res = await publicRequest.get("products/find/"+ id)
+                setItems(res.data);
+            }catch{}
+        }
+        getItem();
+      }, [id]);
 
     return (
         <Container>
@@ -21,12 +28,12 @@ const Item = () => {
             <SubHeader/>
             <Wrapper>
                 <ImgContainer>
-                    <Image src="https://www.jacquelinestallone.com/wp-content/uploads/2022/11/Starbucks-Coffee-Mug-Seattle-2008-Mt-Rainier-Global-Icon-Collector-Series.jpg" />
+                    <Image src={items.img} />
                 </ImgContainer>
                 <InfoContainer>
-                    <Title>Seattle Mug</Title>
-                    <Desc>Mug is from Seattle Starbucks location.</Desc>
-                    <Price>$20.99</Price>
+                    <Title>{items.title}</Title>
+                    <Desc>{items.desc}</Desc>
+                    <Price>${items.price}</Price>
                     <AddtoCart>
                         <AmountContainer>
                             <Remove/>
