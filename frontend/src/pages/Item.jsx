@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import { publicRequest } from "../request";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
-import {Container, Wrapper, ImgContainer, InfoContainer, Image, Title, Desc, Price, AddtoCart, AmountContainer, Amount, Button, Quantity} from "../styles/Item.styles"
+import {Container, Wrapper, ImgContainer, InfoContainer, Image, Title, Desc, Price, AddtoCart, AmountContainer, Amount, Button, Quantity, Hr} from "../styles/Item.styles"
 
 const Item = () => {
     // Location is for looking at the url and parsing it for the id
@@ -26,7 +26,7 @@ const Item = () => {
             }catch{}
         }
         getItem();
-      }, []);
+      }, [id]);
 
     // Handling the visuals of adding to cart
     // Makes sure you can't go below 1 as that wouldn't make sense
@@ -44,7 +44,7 @@ const Item = () => {
     // Adds items to cart
     const handleButtonClick = () => {
         dispatch(
-            addProduct({... items, quantity})
+            addProduct({...items, quantity})
         )
         //items.quantity -= quantity
     }
@@ -63,6 +63,7 @@ const Item = () => {
                     <Price>${items.price}</Price>
                     <br/>
                     <Quantity>Quantity Left: {items.quantity}</Quantity>
+                    <Hr/>
                     <AddtoCart>
                         <AmountContainer>
                             <Remove onClick={() => handleItemQuantity("decrease")}/>

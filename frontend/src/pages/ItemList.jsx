@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import SubHeader from "../components/SubHeader";
 import Footer from "../components/Footer";
 import Products from "../components/Products";
-import {Container, Header, FilterContainer, Filter, FilterText, Select, Option, EmptyContainer} from "../styles/ItemList.styles";
+import {Container, FilterContainer, Filter, FilterText, Select, Option, EmptyContainer} from "../styles/ItemList.styles";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
@@ -26,7 +26,6 @@ const ItemList = () => {
         <Container>
             <Navbar/>
             <SubHeader/>
-            <Header>Mugs</Header>
             <FilterContainer>
                 <Filter>
                     <FilterText>Product Filter:</FilterText>

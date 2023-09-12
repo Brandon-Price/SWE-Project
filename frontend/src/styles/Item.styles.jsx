@@ -50,6 +50,13 @@ export const AddtoCart = styled.div`
     justify-content: space-between;
 `
 
+export const Hr = styled.hr`
+    padding: 30px;
+    background-color: transparent;
+    border: none;
+    height: 1px;
+`
+
 export const AmountContainer = styled.div`
     display: flex;
     allign-items: center;
@@ -59,8 +66,6 @@ export const AmountContainer = styled.div`
 export const Amount = styled.span`
     width: 35px;
     height: 30px;
-    border-radius: 8px;
-    border: 1px solid;
     display: flex;
     allign-items: center;
     justify-content: center;
