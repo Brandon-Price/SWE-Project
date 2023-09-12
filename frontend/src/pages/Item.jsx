@@ -14,7 +14,7 @@ const Item = () => {
     const location = useLocation();
     const id = location.pathname.split("/")[2];
     const [items, setItems] = useState({});
-    const [itemQuanitity, setQuantity] = useState(1);
+    const [quantity, setQuantity] = useState(1);
     const dispatch = useDispatch();
 
     // Looks for the item in our api route with its id that we parse from the url
@@ -26,25 +26,27 @@ const Item = () => {
             }catch{}
         }
         getItem();
-      }, [id]);
+      }, []);
 
     // Handling the visuals of adding to cart
     // Makes sure you can't go below 1 as that wouldn't make sense
     const handleItemQuantity = (type) => {
         if(type === "decrease")
         {
-            itemQuanitity > 1 && setQuantity(itemQuanitity - 1);
+            quantity > 1 && setQuantity(quantity - 1);
         }
-        else if (type === "increase") {
-            setQuantity(itemQuanitity + 1);
+        else {
+        //    items.quantity > quantity &&
+            setQuantity(quantity + 1);
         }
     };
 
     // Adds items to cart
     const handleButtonClick = () => {
         dispatch(
-            addProduct({... items, itemQuanitity})
+            addProduct({... items, quantity})
         )
+        //items.quantity -= quantity
     }
 
     return (
@@ -63,9 +65,9 @@ const Item = () => {
                     <Quantity>Quantity Left: {items.quantity}</Quantity>
                     <AddtoCart>
                         <AmountContainer>
-                            <Remove onClick={() =>handleItemQuantity("decrease")}/>
-                            <Amount>{itemQuanitity}</Amount>
-                            <Add onClick={() =>handleItemQuantity("increase")}/>
+                            <Remove onClick={() => handleItemQuantity("decrease")}/>
+                            <Amount>{quantity}</Amount>
+                            <Add onClick={() => handleItemQuantity("increase")}/>
                         </AmountContainer>
                     </AddtoCart>
                     <Button onClick={handleButtonClick}>Add to Cart</Button>

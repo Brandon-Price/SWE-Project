@@ -110,7 +110,7 @@ export const CartSummary = styled.div`
     border: 0.5px solid lightgray;
     border-radius: 10px;
     padding: 20px;
-    height: 30vh;
+    height: 40vh;
 `
 
 export const SummaryTitle = styled.h1`

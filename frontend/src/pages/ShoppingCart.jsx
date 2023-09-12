@@ -10,6 +10,11 @@ import { useSelector } from "react-redux";
 
 const ShoppingCart = () => {
     const cart = useSelector(state => state.cart)
+    const shipping = 8.99;
+    // const discount = (promo === "5OFF" ? 0.05 : free);
+    const tax = (cart.total *0.0825).toFixed(2);
+    const finalTotal = (cart.total + (cart.total *0.0825)).toFixed(2);
+
     return (
         <Container>
             <Navbar/>
@@ -36,47 +41,38 @@ const ShoppingCart = () => {
                             <ProductPrice>
                                 <PriceContainer>
                                     <Remove/>
-                                    <Quantity>{cart.quantity}</Quantity>
+                                    <Quantity>{product.quantity}</Quantity>
                                     <Add/>
                                 </PriceContainer>
                                 <Price>$ {product.price * cart.quantity}</Price>
                             </ProductPrice>
                         </Product>))}
                         <Hr/>
-                        <Product>
-                            <ProductInfo>
-                                <Image src="https://starbucks-mugs.com/wp-content/uploads/2022/11/btc_philippines_main_786.jpg"/>
-                                <ProductDetails>
-                                    <ProductName><b>Item: </b>Philippines Mug</ProductName>
-                                    <ProductID><b>Item ID: </b>1</ProductID>
-                                </ProductDetails>
-                            </ProductInfo>
-                            <ProductPrice>
-                                <PriceContainer>
-                                    <Remove/>
-                                    <Quantity>4</Quantity>
-                                    <Add/>
-                                </PriceContainer>
-                                <Price>$ 20.99</Price>
-                            </ProductPrice>
-                        </Product>
                     </Info>
                     <CartSummary>
                         <SummaryTitle>Order Details</SummaryTitle>
                         <SummaryItem>
                             <SummaryItemText>Subtotal: </SummaryItemText>
-                            <SummaryItemPrice>$ 167.92</SummaryItemPrice>
+                            <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>Flat Rate Shipping: </SummaryItemText>
-                            <SummaryItemPrice>$ 8.99</SummaryItemPrice>
+                            <SummaryItemPrice>$ {shipping}</SummaryItemPrice>
+                        </SummaryItem>
+                        <SummaryItem>
+                            <SummaryItemText>Free Shipping: </SummaryItemText>
+                            <SummaryItemPrice>- $ {shipping}</SummaryItemPrice>
+                        </SummaryItem>
+                        <SummaryItem>
+                            <SummaryItemText>Tax: </SummaryItemText>
+                            <SummaryItemPrice>$ {tax}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem>
                             <SmallLine/>
                         </SummaryItem>
                         <SummaryItem type= "total">
                             <SummaryItemText>Total: </SummaryItemText>
-                            <SummaryItemPrice>$ 176.91</SummaryItemPrice>
+                            <SummaryItemPrice>$ {finalTotal}</SummaryItemPrice>
                         </SummaryItem>
                         <Button>Continue to Checkout</Button>
                     </CartSummary>
