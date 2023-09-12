@@ -2,7 +2,7 @@ import React from "react";
 import {Search, ShoppingCartOutlined, } from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
 import {useSelector} from "react-redux";
-import {MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu} from "../styles/Navbar.styles.jsx"
+import {MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu, Line} from "../styles/Navbar.styles.jsx"
 
 
 // Using style components for the site
@@ -24,6 +24,7 @@ const Navbar = () => {
                 <Center>
                     <SearchContainer>
                         <Search style ={{color: "gray", fontSize:20}}/>
+                        <Line/>
                         <Input placeholder = "Search"/>
                     </SearchContainer>
                 </Center>

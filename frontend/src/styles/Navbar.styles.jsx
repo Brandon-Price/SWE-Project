@@ -83,3 +83,11 @@ export const MenuLink = styled(Link)`
         text-decoration: underline;
     }
 `
+
+export const Line = styled.div`
+    background-color: lightgray;
+    margin: 0px 5px;
+    height: 100%;
+    padding: 1px;
+    color: gray;
+`
