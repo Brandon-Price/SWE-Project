@@ -42,6 +42,7 @@ export const Info = styled.div`
 export const Product = styled.div`
     display: flex;
     justify-content: space-between;
+    padding: 35px;
 `
 
 export const ProductInfo = styled.div`
