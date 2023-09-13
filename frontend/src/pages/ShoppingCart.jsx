@@ -5,8 +5,14 @@ import { Remove, Add } from "@material-ui/icons";
 import {Container, Wrapper, Top, TopTexts, TopText, Title, Bottom, Info, Product, ProductInfo, Image,
     ProductDetails, ProductName, ProductID, ProductPrice, PriceContainer, Quantity, Price, Hr, SmallLine,
     CartSummary, SummaryTitle, SummaryItem, SummaryItemText,
-    SummaryItemPrice, Button, EmptyContainer, Line} from "../styles/ShoppingCart.styles";
+    SummaryItemPrice, Button, EmptyContainer, Line, ButtonLink} from "../styles/ShoppingCart.styles";
 import { useSelector } from "react-redux";
+import StripeCheckout from "react-stripe-checkout";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {userRequest} from "../request";
+
+const KEY = process.env.REACT_APP_STRIPE;
 
 const ShoppingCart = () => {
     const cart = useSelector(state => state.cart)
@@ -14,6 +20,27 @@ const ShoppingCart = () => {
     // const discount = (promo === "5OFF" ? 0.05 : free);
     const tax = (cart.total *0.0825).toFixed(2);
     const finalTotal = (cart.total + (cart.total *0.0825)).toFixed(2);
+    const [stripeToken, setStripeToken] = useState(null);
+    const history = useNavigate();
+
+    const onToken = (token) => {
+        setStripeToken(token);
+    };
+    
+    useEffect(() => {
+        const makeRequest = async () => {
+          try {
+            const res = await userRequest.post("/checkout/payment", {
+              tokenId: stripeToken.id,
+              amount: 500,
+            });
+            history.push("/success", {
+              stripeData: res.data,
+              products: cart, });
+          } catch {}
+        };
+        stripeToken && makeRequest();
+      }, [stripeToken, cart, history]);
 
     return (
         <Container>
@@ -74,7 +101,21 @@ const ShoppingCart = () => {
                             <SummaryItemText>Total: </SummaryItemText>
                             <SummaryItemPrice>$ {finalTotal}</SummaryItemPrice>
                         </SummaryItem>
-                        <Button>Continue to Checkout</Button>
+                        <StripeCheckout
+                            name = "TBD"
+                            billingAddress
+                            shippingAddress
+                            description={`Total $${finalTotal}`}
+                            amount = {finalTotal * 100}
+                            token = {onToken}
+                            stripeKey={KEY}
+                        >
+                            <Button>
+                                <ButtonLink to="/success">
+                                        Checkout
+                                </ButtonLink>
+                            </Button>
+                        </StripeCheckout>
                     </CartSummary>
                 </Bottom>
             </Wrapper>

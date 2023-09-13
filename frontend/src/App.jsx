@@ -2,7 +2,7 @@ import Item from "./pages/Item";
 import Home from "./pages/Home";
 import Help from "./pages/Help";
 import ItemList from "./pages/ItemList";
-import { useState, useEffect } from "react";
+//import { useState, useEffect } from "react";
 import ShoppingCart from "./pages/ShoppingCart";
 import SignUpSignIn from "./pages/SignUpSignIn";
 import Success from "./pages/Success";
@@ -15,13 +15,13 @@ import {
 
 const App = () => {
 
-  const [user, setUser] = useState();
-  useEffect(() => {
+  // const [user, setUser] = useState();
+  // useEffect(() => {
 
-    // load in user and their cart info here into the user state variables, pass those into components below
-    // setUser( *data from database* );
+  //   // load in user and their cart info here into the user state variables, pass those into components below
+  //   // setUser( *data from database* );
   
-  }, []);
+  // }, []);
   
   const ifUser = true; // switch this to checking if user state is null once implemented
 
