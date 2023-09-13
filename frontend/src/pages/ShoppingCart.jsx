@@ -5,7 +5,7 @@ import { Remove, Add } from "@material-ui/icons";
 import {Container, Wrapper, Top, TopTexts, TopText, Title, Bottom, Info, Product, ProductInfo, Image,
     ProductDetails, ProductName, ProductID, ProductPrice, PriceContainer, Quantity, Price, Hr, SmallLine,
     CartSummary, SummaryTitle, SummaryItem, SummaryItemText,
-    SummaryItemPrice, Button, EmptyContainer, Line, ButtonLink} from "../styles/ShoppingCart.styles";
+    SummaryItemPrice, Button, EmptyContainer, Line, ButtonLink, Input} from "../styles/ShoppingCart.styles";
 import { useSelector } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import { useEffect, useState } from "react";
@@ -17,9 +17,10 @@ const KEY = process.env.REACT_APP_STRIPE;
 const ShoppingCart = () => {
     const cart = useSelector(state => state.cart)
     const shipping = 8.99;
-    // const discount = (promo === "5OFF" ? 0.05 : free);
+    const [disc, setDisc] = useState('');
+    const discount = (disc === "5OFF" ? 0.05 : 0.0);
     const tax = (cart.total *0.0825).toFixed(2);
-    const finalTotal = (cart.total + (cart.total *0.0825)).toFixed(2);
+    const finalTotal = (cart.total + (cart.total *0.0825) + shipping).toFixed(2);
     const [stripeToken, setStripeToken] = useState(null);
     const history = useNavigate();
 
@@ -27,6 +28,7 @@ const ShoppingCart = () => {
         setStripeToken(token);
     };
     
+    // TODO
     useEffect(() => {
         const makeRequest = async () => {
           try {
@@ -34,6 +36,7 @@ const ShoppingCart = () => {
               tokenId: stripeToken.id,
               amount: 500,
             });
+            console.log(res.data);
             history.push("/success", {
               stripeData: res.data,
               products: cart, });
@@ -87,8 +90,8 @@ const ShoppingCart = () => {
                             <SummaryItemPrice>$ {shipping}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem>
-                            <SummaryItemText>Free Shipping: </SummaryItemText>
-                            <SummaryItemPrice>- $ {shipping}</SummaryItemPrice>
+                            <SummaryItemText>Discount: <Input/></SummaryItemText>
+                            <SummaryItemText>- $ {disc}</SummaryItemText>
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>Tax: </SummaryItemText>
@@ -108,10 +111,9 @@ const ShoppingCart = () => {
                             description={`Total $${finalTotal}`}
                             amount = {finalTotal * 100}
                             token = {onToken}
-                            stripeKey={KEY}
-                        >
+                            stripeKey={KEY}>
                             <Button>
-                                <ButtonLink to="/success">
+                                <ButtonLink >
                                         Checkout
                                 </ButtonLink>
                             </Button>

@@ -160,3 +160,12 @@ export const ButtonLink = styled(Link)`
     color: white;
     text-decoration: none;
 `
+
+export const Input = styled.input`
+    border: light;
+    height: 50%;
+    width: 100%;
+    color: gray;
+    font-size: 16px;
+    background-color: transparent;
+`
