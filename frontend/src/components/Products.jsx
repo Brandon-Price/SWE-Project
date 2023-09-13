@@ -26,10 +26,13 @@ const Products = ({cat, filters, sort}) => {
           try {
             const res = await axios.get("http://localhost:5000/api/products");
             setProducts(res.data);
+            console.log(res)
           } catch (err) {}
         };
         getProducts();
       }, []);
+
+      
 
     // useEffect to handle item filter, so by country or city
     // this doesn't work properly
@@ -50,9 +53,14 @@ const Products = ({cat, filters, sort}) => {
           setFilters((prev) =>
             [...prev].sort((a, b) => a.price - b.price)
           );
-        } else {
+        } else if (sort === "descending"){
           setFilters((prev) =>
             [...prev].sort((a, b) => b.price - a.price)
+          );
+        }
+        else if (sort === "quantity"){
+          setFilters((prev) =>
+            [...prev].sort((a, b) => b.quantity - a.quantity)
           );
         }
       }, [sort]);

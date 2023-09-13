@@ -21,7 +21,7 @@ export const InfoContainer = styled.div`
 export const Image = styled.img`
     width: 100%;
     height: 65vh;
-    object-fit: cover;
+    object-fit: contain;
 `
 
 export const Title = styled.h1`

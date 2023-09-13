@@ -13,7 +13,6 @@ import {MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Righ
 // Creating navigation bar
 const Navbar = () => {
     const cartItems = useSelector(state => state.cart.quantity);
-    console.log(cartItems)
 
     return (
         <Container>
