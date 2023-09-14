@@ -98,3 +98,10 @@ export const Title = styled.h1`
     margin-left: 10px;
     margin-bottom: 5px;
 `
+
+export const Button = styled.button`
+    padding: 10px;
+    font-size: 12px;
+    background-color: transparent;
+    cursor: pointer;
+`
