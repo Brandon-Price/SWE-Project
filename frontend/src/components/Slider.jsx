@@ -2,6 +2,13 @@ import React, {useState} from "react";
 import { NavigateBeforeOutlined, NavigateNextOutlined } from "@material-ui/icons";
 import { sliderItems } from "../data";
 import {Container, Arrow, Wrapper, SlideContainer, ImageContainer, InfoContainer, Title, Description, Button, Image} from "../styles/Slider.styles.jsx";
+import {
+    BrowserRouter as Router,
+    Route,
+    Routes,
+    Navigate,
+    useNavigate,
+  } from "react-router-dom";
 
 // Slider is the carousel with the images and the arrows. 
 
@@ -14,6 +21,12 @@ const Slider = () => {
         else {
             setSlideIndex(slideIndex < 2 ? slideIndex + 1: 0);
         }
+    };
+    // route to products page
+    let navigate = useNavigate();
+    const handleShopNow = () => {
+        let path = '/products/';
+        navigate(path);
     };
 
     return (
@@ -30,7 +43,7 @@ const Slider = () => {
                     <InfoContainer>
                         <Title>{item.title}</Title>
                         <Description>{item.desc}</Description>
-                        <Button>SHOP NOW</Button>
+                        <Button onClick={() => handleShopNow()}>SHOP NOW</Button>
                     </InfoContainer>
                 </SlideContainer>
                 ))}
