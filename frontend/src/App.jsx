@@ -14,15 +14,8 @@ import {
 
 const App = () => {
 
+  // will want to load in actual user from the database, but this boolean is ok for now
   const [user, setUser] = useState(true);
-  // useEffect(() => {
-
-  //   // load in user and their cart info here into the user state variables, pass those into components below
-  //   // setUser( *data from database* );
-  
-  // }, []);
-  
-  //const user = false; // switch this to checking if user state is null once implemented
 
   return (
     <Router>
