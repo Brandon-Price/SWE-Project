@@ -91,3 +91,10 @@ export const Line = styled.div`
     padding: 1px;
     color: gray;
 `
+
+export const Title = styled.h1`
+    font-size: 24px;
+    font-weight: 300;
+    margin-left: 10px;
+    margin-bottom: 5px;
+`

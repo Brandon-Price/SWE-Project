@@ -14,7 +14,7 @@ import {userRequest} from "../request";
 
 const KEY = process.env.REACT_APP_STRIPE;
 
-const ShoppingCart = () => {
+const ShoppingCart = ({ ifUser }) => {
     const cart = useSelector(state => state.cart)
     const shipping = 8.99;
     const [disc, setDisc] = useState('');
@@ -47,7 +47,7 @@ const ShoppingCart = () => {
 
     return (
         <Container>
-            <Navbar/>
+            <Navbar ifUser={ifUser}/>
             <SubHeader/>
             <Wrapper>
                 <Title>Your Cart</Title>

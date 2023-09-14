@@ -10,7 +10,6 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  Navigate,
 } from "react-router-dom";
 
 const App = () => {
@@ -28,11 +27,11 @@ const App = () => {
   return (
     <Router>
           <Routes>
-            <Route exact path="/" element={<Home/>}/>
-            <Route path="/products/" element={<ItemList/>}/>
+            <Route exact path="/" element={<Home ifUser={ifUser}/>}/>
+            <Route path="/products/" element={<ItemList ifUser={ifUser}/>}/>
             <Route path="/products/:id" element={<Item/>}/>
             <Route path="/help-center" element={<Help/>}/>
-            <Route path="/cart" element={<ShoppingCart/>}/>
+            <Route path="/cart" element={<ShoppingCart ifUser={ifUser}/>}/>
             <Route path="/account-log-in-sign-up" element={ifUser ? <ShoppingCart/> : <SignUpSignIn/>}/>
             <Route path="/success" element={<Success/>}/>
           </Routes>

@@ -2,7 +2,7 @@ import React from "react";
 import {Search, ShoppingCartOutlined, } from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
 import {useSelector} from "react-redux";
-import {MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu, Line} from "../styles/Navbar.styles.jsx"
+import {Title, MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu, Line} from "../styles/Navbar.styles.jsx"
 
 
 // Using style components for the site
@@ -11,7 +11,7 @@ import {MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Righ
 // Its also a sticky navbar so when you scroll it follows
 
 // Creating navigation bar
-const Navbar = () => {
+const Navbar = ({ ifUser }) => {
     const cartItems = useSelector(state => state.cart.quantity);
 
     return (
@@ -28,9 +28,9 @@ const Navbar = () => {
                     </SearchContainer>
                 </Center>
                 <Right>
-                    <MenuLink to="/account-log-in-sign-up">
+                    {ifUser ? (<Title>Hello "namehere"</Title>) : (<MenuLink to="/account-log-in-sign-up">
                         <Menu>Register/Sign In</Menu>
-                    </MenuLink>
+                    </MenuLink>)}
                     <Menu>
                         <MenuLink to="/cart">
                             <Badge badgeContent={cartItems} color = "primary" overlap="rectangular">

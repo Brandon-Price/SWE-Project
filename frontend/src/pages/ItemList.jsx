@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 
 // Will be handling the item filters and their containers
 
-const ItemList = () => {
+const ItemList = ({ifUser}) => {
     const location = useLocation();
     const cat = location.pathname.split("/")[2];
     const [filters, setFilter] = useState({});
@@ -24,7 +24,7 @@ const ItemList = () => {
 
     return(
         <Container>
-            <Navbar/>
+            <Navbar ifUser={ifUser}/>
             <SubHeader/>
             <FilterContainer>
                 <Filter>
