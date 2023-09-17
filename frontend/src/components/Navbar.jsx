@@ -4,10 +4,6 @@ import {Badge} from '@material-ui/core';
 import {useSelector} from "react-redux";
 import {Button, Title, MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu, Line} from "../styles/Navbar.styles.jsx"
 
-
-// Using style components for the site
-// Don't need a style js file
-// Navbar has the sites different pages
 // Its also a sticky navbar so when you scroll it follows
 
 // Creating navigation bar
