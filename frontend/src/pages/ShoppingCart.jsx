@@ -1,20 +1,22 @@
 import Navbar from "../components/Navbar";
 import SubHeader from "../components/SubHeader";
 import Footer from "../components/Footer";
-import { Remove, Add } from "@material-ui/icons";
+import { DeleteOutline } from "@material-ui/icons";
 import {Container, Wrapper, Top, TopTexts, TopText, Title, Bottom, Info, Product, ProductInfo, Image,
     ProductDetails, ProductName, ProductID, ProductPrice, PriceContainer, Quantity, Price, Hr, SmallLine,
     CartSummary, SummaryTitle, SummaryItem, SummaryItemText,
     SummaryItemPrice, Button, EmptyContainer, Line, ButtonLink, Input} from "../styles/ShoppingCart.styles";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {userRequest} from "../request";
+import { toRemove } from "../redux/cartRedux";
 
 const KEY = process.env.REACT_APP_STRIPE;
 
 const ShoppingCart = ({ ifUser }) => {
+    const dispatch = useDispatch()
     const cart = useSelector(state => state.cart)
     const shipping = 8.99;
     const [disc, setDisc] = useState('');
@@ -70,12 +72,11 @@ const ShoppingCart = ({ ifUser }) => {
                             </ProductInfo>
                             <ProductPrice>
                                 <PriceContainer>
-                                    <Remove/>
                                     <Quantity>{product.quantity}</Quantity>
-                                    <Add/>
                                 </PriceContainer>
-                                <Price>$ {product.price * cart.quantity}</Price>
+                                <Price>$ {product.price * product.quantity}</Price>
                             </ProductPrice>
+                            <DeleteOutline style={{cursor: "pointer"}} onClick={() => dispatch(toRemove(product))}/>
                         </Product>))}
                         <Hr/>
                     </Info>
