@@ -10,6 +10,7 @@ export const Container = styled.footer`
     width: 100%;
     background-color: #555555;
 `
+
 export const Left = styled.div`
     flex: 1;
     display: flex;

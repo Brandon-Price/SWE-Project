@@ -36,7 +36,7 @@ export const Wrapper = styled.div`
 
 export const SlideContainer = styled.div`
     width: 100vw;
-    height: 100vh;
+    height: 110vh;
     display: flex;
     align-items: center;
     background-color: #${props => props.bg};
