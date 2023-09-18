@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Search, ShoppingCartOutlined, } from '@material-ui/icons';
+import {Search, LocalMallOutlined, } from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
 import {useSelector} from "react-redux";
 import {Button, Title, MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu, Line} from "../styles/Navbar.styles.jsx"
@@ -36,7 +36,7 @@ const Navbar = ({ user, setUser }) => {
                     <Menu>
                         <MenuLink to="/cart">
                             <Badge badgeContent={cartItems} color = "primary" overlap="rectangular">
-                                <ShoppingCartOutlined/>
+                                <LocalMallOutlined/>
                             </Badge>
                         </MenuLink>
                     </Menu>

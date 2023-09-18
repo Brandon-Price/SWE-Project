@@ -37,15 +37,18 @@ const Slider = () => {
             <Wrapper slideIndex = {slideIndex}>
                 {sliderItems.map(item=>(
                     <SlideContainer bg = {item.bg} key={item.id}>
-                    <ImageContainer>
-                        <Image src={item.img}/>
-                    </ImageContainer>
-                    <InfoContainer>
-                        <Title>{item.title}</Title>
-                        <Description>{item.desc}</Description>
-                        <Button onClick={() => handleShopNow()}>SHOP NOW</Button>
-                    </InfoContainer>
-                </SlideContainer>
+                        <ImageContainer>
+                            <Image src={item.img}/>
+                        </ImageContainer>
+                        <InfoContainer>
+                            <Title>{item.title}</Title>
+                            <Description>{item.desc}</Description>
+                            <Button onClick={() => handleShopNow()}>SHOP NOW</Button>
+                        </InfoContainer>
+                        <ImageContainer>
+                            <Image src={item.img2}/>
+                        </ImageContainer>
+                    </SlideContainer>
                 ))}
             </Wrapper>
             <Arrow direction = "right" onClick={()=>handleClick("right")}>
