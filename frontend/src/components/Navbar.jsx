@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {Search, LocalMallOutlined, } from '@material-ui/icons';
+import {Search, LocalMallOutlined, ExitToApp} from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
 import {useSelector} from "react-redux";
 import {Button, Title, MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu, Line} from "../styles/Navbar.styles.jsx"
@@ -29,7 +29,7 @@ const Navbar = ({ user, setUser }) => {
                     </SearchContainer>
                 </Center>
                 <Right>
-                    {user && <Button onClick={() => handleLogout()}>Logout</Button>}
+                    {user && <ExitToApp style={{title: "logout", cursor: "pointer"}} onClick={() => handleLogout()}/>}
                     {user ? (<Title>Hello "namehere"</Title>) : (<MenuLink to="/account-log-in-sign-up">
                         <Menu>Register/Sign In</Menu>
                     </MenuLink>)}
