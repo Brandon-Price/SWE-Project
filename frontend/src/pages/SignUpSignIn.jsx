@@ -1,8 +1,8 @@
 // File that will have the regristration and sign in
 import { useDispatch, useSelector } from "react-redux";
 import { login, register } from "../redux/apiFetch.js";
-import {Container, Line, LeftContainer, RightContainer, Wrapper, Title, Form, Input, Button} from "../styles/SignUpSignIn.styles.jsx";
-import { useEffect, useState } from "react";
+import {Container, Line, LeftContainer, RightContainer, Wrapper, Title, Form, Input, Button, Error} from "../styles/SignUpSignIn.styles.jsx";
+import { useState } from "react";
 
 const SignUpSignIn = () => {
     // For register data
@@ -16,13 +16,16 @@ const SignUpSignIn = () => {
 
     const dispatch = useDispatch();
     const {isFetching, error} = useSelector((state) => state.user);
-
-    const handleSignIn = (e) => {
-        login(dispatch, {username, password})
-    }
+    const {isFetchingReg, error2} = useSelector((state) => state.user);
 
     const handleRegister = (e) => {
+        e.preventDefault();
         register(dispatch, {regUsername, email, regPassword})
+    }
+
+    const handleSignIn = (e) => {
+        e.preventDefault();
+        login(dispatch, {username, password})
     }
 
 
@@ -36,8 +39,9 @@ const SignUpSignIn = () => {
                         <Input placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
                         <Input placeholder="Password" type="password" onChange={(e) => setRegPassword(e.target.value)}/>
                         <Input placeholder="Confirm Password" type="password"/>
+                        {error2 && <Error>Error has occurred</Error>}
+                        <Button onClick={handleRegister} disabled={isFetchingReg}>Create Account</Button>
                     </Form>
-                    <Button onClick={handleRegister}>Create Account</Button>
                 </LeftContainer>
             </Wrapper>
             <Line>:</Line>
@@ -47,8 +51,9 @@ const SignUpSignIn = () => {
                     <Form>
                         <Input placeholder="Username" onChange={(e) => setUsername(e.target.value)}/>
                         <Input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
+                        {error && <Error>Error has occurred</Error>}
+                        <Button onClick={handleSignIn} disabled={isFetching}>Sign In</Button>
                     </Form>
-                    <Button onClick={handleSignIn} disabled={isFetching}>Sign In</Button>
                 </RightContainer>
             </Wrapper>
         </Container>

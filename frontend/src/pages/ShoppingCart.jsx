@@ -30,6 +30,13 @@ const ShoppingCart = ({ ifUser }) => {
         setStripeToken(token);
     };
     
+    /*------------------IMPORTANT------------------------------------ */
+    // When using stripe checkout test card data is
+    // 4242 4242 4242 4242
+    // 12/23 and any 3 digits
+    /*------------------------------------------------------ */
+
+
     // TODO
     useEffect(() => {
         const makeRequest = async () => {

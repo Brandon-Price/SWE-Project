@@ -91,3 +91,8 @@ export const Button = styled.button`
         color: #497dc8;
     }
 `
+
+export const Error = styled.span`
+    color: red;
+    display: row;
+`
