@@ -19,7 +19,9 @@ const Navbar = () => {
         <Container>
             <Wrapper>
                 <Left>
+                <MenuLink to="/">
                     <Logo>TBD</Logo>
+                </MenuLink>
                 </Left>
                 <Center>
                     <SearchContainer>
