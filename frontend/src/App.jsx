@@ -11,27 +11,19 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const App = () => {
-
-  // will want to load in actual user from the database, but this boolean is ok for now
-  //const [user, setUser] = useState(true);
+  const user = useSelector((state) => state.user.currentUser);
 
   return (
     <Router>
           <Routes>
-            {/* <Route exact path="/" element={<Home user={user} setUser={() => setUser()}/>}/>
-            <Route path="/products/" element={<ItemList user={user} setUser={() => setUser()}/>}/>
-            <Route path="/products/:id" element={<Item/>}/>
-            <Route path="/help-center" element={<Help/>}/>
-            <Route path="/cart" element={<ShoppingCart user={user} setUser={() => setUser()}/>}/>
-            <Route path="/account-log-in-sign-up" element={user ? <ShoppingCart/> : <SignUpSignIn/>}/>
-            <Route path="/success" element={<Success/>}/> */}
             <Route exact path="/" element={<Home/>}/>
             <Route path="/products/" element={<ItemList/>}/>
             <Route path="/products/:id" element={<Item/>}/>
             <Route path="/help-center" element={<Help/>}/>
-            <Route path="/cart" element={<ShoppingCart/>}/>
+            <Route path="/cart" element={user ? <ShoppingCart/> : <SignUpSignIn/>}/>
             <Route path="/account-log-in-sign-up" element={<SignUpSignIn/>}/>
             <Route path="/success" element={<Success/>}/>
           </Routes>

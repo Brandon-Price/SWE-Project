@@ -58,7 +58,7 @@ export const Center = styled.div`
 `
 
 export const Right = styled.div`
-    flex:1;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -73,6 +73,8 @@ export const Menu = styled.div`
     font-size: 16px;
     cursor: pointer;
     margin-left: 20px;
+    padding: 0px;
+    display: flex;
 `
 
 export const MenuLink = styled(Link)`

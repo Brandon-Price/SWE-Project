@@ -7,12 +7,12 @@ import {Button, Title, MenuLink, Container, Wrapper, Left, SearchContainer, Inpu
 // Its also a sticky navbar so when you scroll it follows
 
 // Creating navigation bar
-const Navbar = ({ user, setUser }) => {
+const Navbar = () => {
+    const user = useSelector((state) => state.user.currentUser);
     const cartItems = useSelector(state => state.cart.quantity);
 
     const handleLogout = () => {
         console.log("logging user out...");
-        setUser(false);
     };
 
     return (
@@ -29,13 +29,12 @@ const Navbar = ({ user, setUser }) => {
                     </SearchContainer>
                 </Center>
                 <Right>
-                    {user && <ExitToApp style={{title: "logout", cursor: "pointer"}} onClick={() => handleLogout()}/>}
-                    {user ? (<Title>Hello "namehere"</Title>) : (<MenuLink to="/account-log-in-sign-up">
+                    {user ? (<Menu><Title>Hello {user.username}</Title><ExitToApp/></Menu>) : (<MenuLink to="/account-log-in-sign-up">
                         <Menu>Register/Sign In</Menu>
                     </MenuLink>)}
                     <Menu>
                         <MenuLink to="/cart">
-                            <Badge badgeContent={cartItems} color = "primary" overlap="rectangular">
+                            <Badge badgeContent={cartItems} color = "primary" overlap="rectangular" style={{ padding: '1px' }}>
                                 <LocalMallOutlined/>
                             </Badge>
                         </MenuLink>
