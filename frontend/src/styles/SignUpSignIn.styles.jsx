@@ -85,4 +85,9 @@ export const Button = styled.button`
         background-color: #497dc8;
         color: white;
     }
+
+    &:disabled {
+        cursor: not-allowed;
+        color: #497dc8;
+    }
 `
