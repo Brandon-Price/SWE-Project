@@ -1,18 +1,25 @@
 import React, { useState } from "react";
 import {Search, LocalMallOutlined, ExitToApp} from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
+import axios from "axios";
+
 import {Button, Title, MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu, Line} from "../styles/Navbar.styles.jsx"
+import { useNavigate } from "react-router-dom";
 
 // Its also a sticky navbar so when you scroll it follows
 
 // Creating navigation bar
 const Navbar = () => {
+    const navigate = useNavigate()
     const user = useSelector((state) => state.user.currentUser);
     const cartItems = useSelector(state => state.cart.quantity);
 
-    const handleLogout = () => {
+    const handleLogout = (e) => {
         console.log("logging user out...");
+        e.preventDefault();
+        axios.delete("http://localhost:5000/api/auth/logout");
+        window.location.reload();
     };
 
     return (
@@ -31,7 +38,7 @@ const Navbar = () => {
                     </SearchContainer>
                 </Center>
                 <Right>
-                    {user ? (<Menu><Title>Hello {user.username}</Title><ExitToApp/></Menu>) : (<MenuLink to="/account-log-in-sign-up">
+                    {user ? (<Menu><Title>Hello {user.username}</Title><ExitToApp onClick={handleLogout}/></Menu>) : (<MenuLink to="/account-log-in-sign-up">
                         <Menu>Register/Sign In</Menu>
                     </MenuLink>)}
                     <Menu>

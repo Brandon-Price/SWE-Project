@@ -19,12 +19,12 @@ const App = () => {
   return (
     <Router>
           <Routes>
-            <Route exact path="/" element={<Home/>}/>
+            <Route exact path="/" element={user ? <SignUpSignIn/> : <Home/>}/>
             <Route path="/products/" element={<ItemList/>}/>
             <Route path="/products/:id" element={<Item/>}/>
             <Route path="/help-center" element={<Help/>}/>
             <Route path="/cart" element={user ? <ShoppingCart/> : <SignUpSignIn/>}/>
-            <Route path="/account-log-in-sign-up" element={<SignUpSignIn/>}/>
+            <Route path="/account-log-in-sign-up" element={user ? <Home/> : <SignUpSignIn/>}/>
             <Route path="/success" element={<Success/>}/>
           </Routes>
     </Router>
