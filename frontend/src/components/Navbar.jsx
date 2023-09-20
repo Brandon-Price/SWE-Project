@@ -1,17 +1,14 @@
-import React, { useState } from "react";
 import {Search, LocalMallOutlined, ExitToApp} from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
 import { useSelector } from "react-redux";
 import axios from "axios";
 
-import {Button, Title, MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu, Line} from "../styles/Navbar.styles.jsx"
-import { useNavigate } from "react-router-dom";
+import {Title, MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu, Line} from "../styles/Navbar.styles.jsx"
 
 // Its also a sticky navbar so when you scroll it follows
 
 // Creating navigation bar
 const Navbar = () => {
-    const navigate = useNavigate()
     const user = useSelector((state) => state.user.currentUser);
     const cartItems = useSelector(state => state.cart.quantity);
 

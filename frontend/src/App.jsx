@@ -2,7 +2,6 @@ import Item from "./pages/Item";
 import Home from "./pages/Home";
 import Help from "./pages/Help";
 import ItemList from "./pages/ItemList";
-import { useState, useEffect } from "react";
 import ShoppingCart from "./pages/ShoppingCart";
 import SignUpSignIn from "./pages/SignUpSignIn";
 import Success from "./pages/Success";
@@ -19,7 +18,7 @@ const App = () => {
   return (
     <Router>
           <Routes>
-            <Route exact path="/" element={user ? <SignUpSignIn/> : <Home/>}/>
+            <Route exact path="/" element={<Home/>}/>
             <Route path="/products/" element={<ItemList/>}/>
             <Route path="/products/:id" element={<Item/>}/>
             <Route path="/help-center" element={<Help/>}/>
