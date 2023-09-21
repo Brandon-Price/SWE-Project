@@ -2,7 +2,8 @@ import styled from "styled-components";
 import Product from "./Product";
 //import { products } from "../data";
 import axios from "axios";
-import { useState, useEffect } from "react";
+import {useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 
 // Focuses on handling and organzing the product display page
@@ -19,7 +20,7 @@ const Container = styled.div`
 const Products = ({cat, filters, sort}) => {
     const [products, setProducts] = useState([]);
     const [filterSelect, setFilters] = useState([]);
-
+    const [searchFilter, setSearchFilter] = useState(useLocation().state || []);
     // Grabs all products
     useEffect(() => {
         const getProducts = async () => {

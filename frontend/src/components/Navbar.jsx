@@ -3,6 +3,7 @@ import {Badge} from '@material-ui/core';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../redux/userSlice.js';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 import {Title, MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu, Line} from "../styles/Navbar.styles.jsx"
 
@@ -14,9 +15,25 @@ const Navbar = () => {
     const user = useSelector((state) => state.user.currentUser);
     const cartItems = useSelector(state => state.cart.quantity);
 
+    // handle search routing
+    let navigate = useNavigate();
+    const handleProductRoute = (passedSearchFilter) => {
+    let path = '/products/';
+    navigate(path, {state: {searchFilter: passedSearchFilter}});
+    };
+
     const handleLogout = (e) => {
         e.preventDefault();
         dispatch(logout())
+    };
+
+    const handleSearch = (e) => {
+        if (e.key === "Enter") {
+            // handle move to itemlist
+            // implement search filter (todo)
+            console.log("moving to products page, filter: " + e.target.value);
+            handleProductRoute(e.target.value);
+        }
     };
 
     return (
@@ -31,7 +48,7 @@ const Navbar = () => {
                     <SearchContainer>
                         <Search style ={{color: "gray", fontSize:20}}/>
                         <Line/>
-                        <Input placeholder = "Search"/>
+                        <Input placeholder = "Search" onKeyDown={(e) => handleSearch(e)}/>
                     </SearchContainer>
                 </Center>
                 <Right>
