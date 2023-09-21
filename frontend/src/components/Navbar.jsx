@@ -27,10 +27,10 @@ const Navbar = () => {
         dispatch(logout())
     };
 
+    // search bar enter key handler, passes searchFilter prop to products page
     const handleSearch = (e) => {
         if (e.key === "Enter") {
             // handle move to itemlist
-            // implement search filter (todo)
             console.log("moving to products page, filter: " + e.target.value);
             handleProductRoute(e.target.value);
         }
