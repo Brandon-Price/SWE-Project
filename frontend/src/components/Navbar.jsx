@@ -2,6 +2,7 @@ import {Search, LocalMallOutlined, ExitToApp} from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../redux/userSlice.js';
+import { toRemoveAll } from '../redux/cartRedux.js';
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
@@ -22,9 +23,11 @@ const Navbar = () => {
     navigate(path, {state: {searchFilter: passedSearchFilter}});
     };
 
+    // When users logout their cart should be set to nothing
     const handleLogout = (e) => {
         e.preventDefault();
         dispatch(logout())
+        dispatch(toRemoveAll(cartItems))
     };
 
     // search bar enter key handler, passes searchFilter prop to products page
@@ -52,7 +55,7 @@ const Navbar = () => {
                     </SearchContainer>
                 </Center>
                 <Right>
-                    {user ? (<Menu><Title>Hello {user.username}</Title><ExitToApp onClick={handleLogout}/></Menu>) : (<MenuLink to="/account-log-in-sign-up">
+                    {user ? (<Menu><Title style={{cursor: "default"}}>Hello {user.username}</Title><ExitToApp onClick={handleLogout}/></Menu>) : (<MenuLink to="/account-log-in-sign-up">
                         <Menu>Register/Sign In</Menu>
                     </MenuLink>)}
                     <Menu>
