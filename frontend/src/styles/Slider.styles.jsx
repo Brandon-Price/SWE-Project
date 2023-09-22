@@ -55,7 +55,8 @@ export const InfoContainer = styled.div`
     align-items: center;
     justify-content: center;
     position: absolute;
-    left: 11%;
+    left: 33%;
+    z-index: 3
 `
 
 export const Title = styled.h1`
