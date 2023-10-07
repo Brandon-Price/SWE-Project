@@ -2,9 +2,11 @@ import {Search, LocalMallOutlined, ExitToApp} from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../redux/userSlice.js';
-import { toRemoveAll } from '../redux/cartRedux.js';
-import { useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { useLocation, useNavigate } from "react-router-dom";
+
 import {Title, MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu, Line} from "../styles/Navbar.styles.jsx"
+import { updateFilter } from '../redux/searchFilter.js';
 
 // Its also a sticky navbar so when you scroll it follows
 
@@ -13,20 +15,21 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user.currentUser);
     const cartItems = useSelector(state => state.cart.quantity);
+    const searchFilter = useSelector(state => state.searchFilter)
 
     // handle search routing
     let navigate = useNavigate();
-    
+    let location = useLocation();
+
     const handleProductRoute = (passedSearchFilter) => {
-        let path = '/products/';
-        navigate(path, {state: {searchFilter: passedSearchFilter}});
+            dispatch(updateFilter(passedSearchFilter));
+            let path = '/products/';
+            navigate(path, {state: {searchFilter: passedSearchFilter}});
     };
 
-    // When users logout their cart should be set to nothing
     const handleLogout = (e) => {
         e.preventDefault();
         dispatch(logout())
-        dispatch(toRemoveAll(cartItems))
     };
 
     // search bar enter key handler, passes searchFilter prop to products page
@@ -54,7 +57,7 @@ const Navbar = () => {
                     </SearchContainer>
                 </Center>
                 <Right>
-                    {user ? (<Menu><Title style={{cursor: "default"}}>Hello {user.username}</Title><ExitToApp onClick={handleLogout}/></Menu>) : (<MenuLink to="/account-log-in-sign-up">
+                    {user ? (<Menu><Title>Hello {user.username}</Title><ExitToApp onClick={handleLogout}/></Menu>) : (<MenuLink to="/account-log-in-sign-up">
                         <Menu>Register/Sign In</Menu>
                     </MenuLink>)}
                     <Menu>

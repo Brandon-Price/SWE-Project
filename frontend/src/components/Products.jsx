@@ -3,6 +3,7 @@ import Product from "./Product";
 //import { products } from "../data";
 import axios from "axios";
 import {useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 
 
@@ -20,7 +21,9 @@ const Products = ({cat, filters, sort}) => {
     const [products, setProducts] = useState([]);
     const [filterSelect, setFilters] = useState([]);
     // grab passed string from search bar, or "" if empty
-    const [searchFilter, setSearchFilter] = useState(useLocation().state);
+    //const temp = {searchFilter: ''}
+    //const [searchFilter, setSearchFilter] = useState(useLocation().state || temp);
+    const searchFilter = useSelector(state => state.searchFilter.content)
 
     // Grabs all products
     useEffect(() => {
@@ -70,8 +73,11 @@ const Products = ({cat, filters, sort}) => {
     return (
         <Container>
                  {filters
-                    ? filterSelect.map((item) => <Product item={item} key={item._id} />)
-                    : products
+                    ? filterSelect.filter(filterSelect => filterSelect.title.toLowerCase()
+                    .includes(searchFilter.toLowerCase()))
+                    .map((item) => <Product item={item} key={item._id} />)
+                    : products.filter(filterSelect => filterSelect.title.toLowerCase()
+                    .includes(searchFilter.toLowerCase()))
                         .map((item) => <Product item={item} key={item._id} />)}
         </Container>
     )
