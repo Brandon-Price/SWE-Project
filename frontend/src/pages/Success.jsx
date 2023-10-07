@@ -24,6 +24,10 @@ const Success = () => {
     // You will also want to handle calling the api data to post the items to orders
     const handleCart = (e) => {
       e.preventDefault();
+      
+      // temp, will implement removing items that were purchased from those available
+      cartItems.forEach((item) => console.log(item));
+
       dispatch(toRemoveAll(cartItems))
   };
 

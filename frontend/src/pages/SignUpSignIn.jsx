@@ -13,16 +13,31 @@ const SignUpSignIn = () => {
     const dispatch = useDispatch();
     const {isFetching, error} = useSelector((state) => state.user);
     const {isFetchingReg, error2} = useSelector((state) => state.user);
+    const [passwordMatchError, setPasswordMatchError] = useState(false);
     // Registers user to redux state
     const handleRegister = (e) => {
         e.preventDefault();
-        register(dispatch, {username, email, password})
+        if (!passwordMatchError) {
+            register(dispatch, {username, email, password})
+        }
     }
     // Sets the login of user to redux
     const handleSignIn = (e) => {
         e.preventDefault();
         login(dispatch, {username, password})
     }
+
+    const handleConfirmPassword = (text) => {
+
+        // handle confirmpassword
+        if (password != text) {
+            setPasswordMatchError(true);
+        } 
+
+        if (password == text) {
+            setPasswordMatchError(false);
+        }
+    };
 
     // TODO
     // Need confirm password to actually check password and spit an error or make the box red
@@ -36,7 +51,8 @@ const SignUpSignIn = () => {
                         <Input placeholder="Username" onChange={(e) => setUsername(e.target.value)}/>
                         <Input placeholder="Email" onChange={(e) => setEmail(e.target.value)}/>
                         <Input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
-                        <Input placeholder="Confirm Password" type="password"/>
+                        <Input placeholder="Confirm Password" type="password" onChange={(e) => handleConfirmPassword(e.target.value)}/>
+                        {passwordMatchError && <Error>Passwords do not match</Error>}
                         {error2 && <Error>Error has occurred</Error>}
                         <Button onClick={handleRegister} disabled={isFetchingReg}>Create Account</Button>
                     </Form>
