@@ -53,7 +53,7 @@ const Navbar = () => {
                     <SearchContainer>
                         <Search style ={{color: "gray", fontSize:20}}/>
                         <Line/>
-                        <Input placeholder = "Search" onKeyDown={(e) => handleSearch(e)}/>
+                        <Input placeholder = {searchFilter.content !== "" ? searchFilter.content : "Search"} onKeyDown={(e) => handleSearch(e)}/>
                     </SearchContainer>
                 </Center>
                 <Right>
