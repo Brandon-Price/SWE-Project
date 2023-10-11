@@ -1,4 +1,4 @@
-import {Search, LocalMallOutlined, ExitToApp} from '@material-ui/icons';
+import {Close, Search, LocalMallOutlined, ExitToApp} from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../redux/userSlice.js';
@@ -53,7 +53,8 @@ const Navbar = () => {
                     <SearchContainer>
                         <Search style ={{color: "gray", fontSize:20}}/>
                         <Line/>
-                        <Input placeholder = {searchFilter.content !== "" ? searchFilter.content : "Search"} onKeyDown={(e) => handleSearch(e)}/>
+                        <Input placeholder="Search" onKeyDown={(e) => handleSearch(e)}/>
+                        <Close onClick={() => dispatch(updateFilter(""))}></Close>
                     </SearchContainer>
                 </Center>
                 <Right>
