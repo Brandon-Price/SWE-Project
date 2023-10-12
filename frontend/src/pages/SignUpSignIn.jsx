@@ -39,8 +39,6 @@ const SignUpSignIn = () => {
         }
     };
 
-    // TODO
-    // Need confirm password to actually check password and spit an error or make the box red
     return (
         <Container>
             <Image></Image>

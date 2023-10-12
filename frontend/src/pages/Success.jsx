@@ -26,7 +26,7 @@ const Success = () => {
       e.preventDefault();
       
       // temp, will implement removing items that were purchased from those available
-      cartItems.forEach((item) => console.log(item));
+      // cartItems.forEach((item) => console.log(item));
 
       dispatch(toRemoveAll(cartItems))
   };
