@@ -116,7 +116,7 @@ const ShoppingCart = ({ ifUser }) => {
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>Discount: <Input onKeyDown={(e) => handleDiscountEnter(e)}/></SummaryItemText>
-                            {discError ? <Error>Discount does not exist</Error> : <SummaryItemText>- $ {(finalTotal * currDisc)}</SummaryItemText>}
+                            {discError ? <Error>Discount does not exist</Error> : <SummaryItemText>- $ {(finalTotal * currDisc).toFixed(2)}</SummaryItemText>}
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>Tax: </SummaryItemText>
@@ -127,14 +127,14 @@ const ShoppingCart = ({ ifUser }) => {
                         </SummaryItem>
                         <SummaryItem type= "total">
                             <SummaryItemText>Total: </SummaryItemText>
-                            <SummaryItemPrice>$ {finalTotal - (finalTotal * currDisc)}</SummaryItemPrice>
+                            <SummaryItemPrice>$ {(finalTotal - (finalTotal * currDisc)).toFixed(2)}</SummaryItemPrice>
                         </SummaryItem>
                         <StripeCheckout
                             name = "TBD"
                             billingAddress
                             shippingAddress
-                            description={`Total $${finalTotal}`}
-                            amount = {(finalTotal - (finalTotal * currDisc)) * 100}
+                            description={`Total $${(finalTotal - (finalTotal * currDisc)).toFixed(2)}`}
+                            amount = {(finalTotal - (finalTotal * currDisc)).toFixed(2) * 100}
                             currency="USD"
                             token = {onToken}
                             stripeKey={process.env.REACT_APP_STRIPE}> 
