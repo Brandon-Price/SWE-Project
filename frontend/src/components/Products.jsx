@@ -1,80 +1,87 @@
 import styled from "styled-components";
 import Product from "./Product";
-//import { products } from "../data";
 import axios from "axios";
-import {useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
+export const Container = styled.div`
+  flex: 1;
+  padding: 15px;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  min-width: 250px;
 
-// Focuses on handling and organzing the product display page
-const Container = styled.div`
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 200px;
-    justify-content: space-between;
-    overflow:hidden;
-`
+  &:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
 
-const Products = ({cat, filters, sort}) => {
-    const [products, setProducts] = useState([]);
-    const [filterSelect, setFilters] = useState([]);
-    // grab passed string from search bar, or "" if empty
-    const [searchFilter, setSearchFilter] = useState(useLocation().state);
+  @media (max-width: 768px) {
+    min-width: 100%;
+    margin: 20px 0;
+  }
+`;
 
-    // Grabs all products
-    useEffect(() => {
-        const getProducts = async () => {
-          try {
-            const res = await axios.get("http://localhost:5000/api/products");
-            setProducts(res.data);
-            console.log(res)
-          } catch (err) {}
-        };
-        getProducts();
-      }, []);
+export const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust the minimum and maximum width as needed */
+  grid-gap: 10px; /* Reduce the gap between grid items */
+  justify-items: center;
+  align-items: start;
 
-      
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+`;
 
-    // useEffect to handle item filter, so by country or city
-    // this doesn't work properly
-    // TODO
-    useEffect(() => { 
-        setFilters(
-            products.filter((item) =>
-                Object.entries(filters).every(([key, value]) =>
-                    item[key] === value
-              )
-        )
-        );
-    }, [products, filters]);
+const Products = ({ cat, filters, sort }) => {
+  const [products, setProducts] = useState([]);
+  const [filterSelect, setFilters] = useState([]);
+  const [searchFilter, setSearchFilter] = useState(useLocation().state);
 
-    // Sorting by item prices ascending and descending
-    useEffect(() => {
-        if (sort === "ascending") {
-          setFilters((prev) =>
-            [...prev].sort((a, b) => a.price - b.price)
-          );
-        } else if (sort === "descending"){
-          setFilters((prev) =>
-            [...prev].sort((a, b) => b.price - a.price)
-          );
-        }
-        else if (sort === "quantity"){
-          setFilters((prev) =>
-            [...prev].sort((a, b) => b.quantity - a.quantity)
-          );
-        }
-      }, [sort]);
+  useEffect(() => {
+    const getProducts = async () => {
+      try {
+        const res = await axios.get("http://localhost:5000/api/products");
+        setProducts(res.data);
+        console.log(res);
+      } catch (err) {}
+    };
+    getProducts();
+  }, []);
 
-    return (
-        <Container>
-                 {filters
-                    ? filterSelect.map((item) => <Product item={item} key={item._id} />)
-                    : products
-                        .map((item) => <Product item={item} key={item._id} />)}
-        </Container>
-    )
-}
+  useEffect(() => {
+    setFilters(
+      products.filter((item) =>
+        Object.entries(filters).every(([key, value]) => item[key] === value)
+      )
+    );
+  }, [products, filters]);
 
-export default Products
+  useEffect(() => {
+    if (sort === "ascending") {
+      setFilters((prev) => [...prev].sort((a, b) => a.price - b.price));
+    } else if (sort === "descending") {
+      setFilters((prev) => [...prev].sort((a, b) => b.price - a.price));
+    } else if (sort === "quantity") {
+      setFilters((prev) => [...prev].sort((a, b) => b.quantity - a.quantity));
+    }
+  }, [sort]);
+
+  return (
+    <GridContainer>
+      {filterSelect
+        ? filterSelect.map((item) => <Product item={item} key={item._id} />)
+        : products.map((item) => <Product item={item} key={item._id} />)}
+    </GridContainer>
+  );
+};
+
+export default Products;

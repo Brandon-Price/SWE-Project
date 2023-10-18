@@ -6,7 +6,7 @@ export const sliderItems = [
         id: 1,
         img: "https://images.pexels.com/photos/2506923/pexels-photo-2506923.jpeg?cs=srgb&dl=pexels-aleksandar-pasaric-2506923.jpg&fm=jpg",
         img2: "https://images.pexels.com/photos/2614818/pexels-photo-2614818.jpeg?cs=srgb&dl=pexels-nick-kwan-2614818.jpg&fm=jpg",
-        title: "Been There Series",
+        title: "'Been There' Series",
         desc: "Mark your travels with a mug",
         bg: "#D1FFBD",
     },
