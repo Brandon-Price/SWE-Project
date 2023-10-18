@@ -1,5 +1,6 @@
 import { Facebook, Twitter, Instagram } from "@material-ui/icons";
-import {Container, Left, UsefulLinks, Links, FooterLink, Logo, SocialContainer, SocialIcon, Right, Center} from "../styles/Footer.styles";
+import { Container, Left, UsefulLinks, Links, FooterLink, Logo, SocialContainer, SocialIcon, Right, Center } from "../styles/Footer.styles";
+import starbucksLogo from "../starbuckslogo.png";
 
 const Footer = () => {
   return (
@@ -19,10 +20,11 @@ const Footer = () => {
         </Links>
       </Left>
       <Center>
-        <Logo>LOGO</Logo>
+        <Logo>
+          <img src={starbucksLogo} alt="Starbucks Mugs" />
+        </Logo>
       </Center>
       <Right>
-        <Logo>TBD</Logo>
         <SocialContainer>
           <SocialIcon>
             <Facebook />

@@ -46,7 +46,7 @@ const Navbar = () => {
             <Wrapper>
                 <Left>
                 <MenuLink to="/">
-                    <Logo>TBD</Logo>
+                    <Logo></Logo>
                 </MenuLink>
                 </Left>
                 <Center>

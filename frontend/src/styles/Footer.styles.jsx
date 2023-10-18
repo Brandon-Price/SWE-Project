@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 export const Container = styled.footer`
-  background-color: #00704a; /* Starbucks green color */
-  color: #fff; /* White text */
+  background-color: #00704a;
+  color: #fff;
   padding: 20px;
   display: flex;
   justify-content: space-between;
@@ -34,7 +34,7 @@ export const FooterLink = styled(Link)`
   font-size: 16px;
   transition: color 0.3s;
   &:hover {
-    color: #000; /* Black on hover */
+    color: #000;
   }
 `;
 
@@ -42,6 +42,11 @@ export const Logo = styled.h1`
   font-size: 24px;
   margin: 10px 0;
   font-weight: bold;
+
+  img {
+    max-width: 100px;
+    height: auto;
+  }
 `;
 
 export const SocialContainer = styled.div`
@@ -56,7 +61,7 @@ export const SocialIcon = styled.div`
   cursor: pointer;
   transition: color 0.3s;
   &:hover {
-    color: #000; /* Black on hover */
+    color: #000;
   }
 `;
 
