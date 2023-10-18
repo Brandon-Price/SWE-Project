@@ -47,7 +47,7 @@ export const Quantity = styled.p`
 export const Button = styled.button`
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #007bff;
+  background-color: #008000;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -55,6 +55,6 @@ export const Button = styled.button`
   transition: background-color 0.3s ease-in-out;
 
   &:hover {
-    background-color: #0056b3;
+    background-color: #006400;
   }
 `;
