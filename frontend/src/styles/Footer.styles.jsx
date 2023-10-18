@@ -2,83 +2,71 @@ import styled from "styled-components";
 import { Link } from 'react-router-dom';
 
 export const Container = styled.footer`
-    left: 0;
-    position: relative;
-    bottom: 0;
-    right: 0;
-    display: flex;
-    width: 100%;
-    background-color: #555555;
-`
+  background-color: #00704a; /* Starbucks green color */
+  color: #fff; /* White text */
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+`;
 
 export const Left = styled.div`
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 1%;
-`
+  flex: 1;
+  padding: 10px;
+`;
 
 export const UsefulLinks = styled.h3`
-    margin-bottom: 1.5%;
-    color: white;
-`
+  margin: 10px 0;
+  font-size: 18px;
+`;
 
 export const Links = styled.ul`
-    margin: 0%;
-    padding: 0%;
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-`
+  list-style: none;
+  padding: 0;
+`;
 
 export const FooterLink = styled(Link)`
-    color: white;
-    text-decoration: none;
-    &:hover, &:focus{
-        text-decoration: underline;
-    };
-    &:active{
-        color: teal;
-    };
-`
-
-export const LinksList = styled.li`
-    width: 40%;
-    margin-bottom: 0%;
-`
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  margin: 5px 0;
+  font-size: 16px;
+  transition: color 0.3s;
+  &:hover {
+    color: #000; /* Black on hover */
+  }
+`;
 
 export const Logo = styled.h1`
-    color: white;
-    display: flex;
-    align-items: center;
-    margin: 4%;
-`
+  font-size: 24px;
+  margin: 10px 0;
+  font-weight: bold;
+`;
 
 export const SocialContainer = styled.div`
-    display: flex;
-`
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`;
 
 export const SocialIcon = styled.div`
-    width: 100%;
-    height: 100%;
-    border-radius: 20%;
-    color: white;
-    background-color: #${props => props.color};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 20px;
-    cursor: pointer;
-`
+  font-size: 24px;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.3s;
+  &:hover {
+    color: #000; /* Black on hover */
+  }
+`;
 
 export const Right = styled.div`
-    display: flex;
-    align-items: end;
-    justify-content: flex-end;
-    flex-direction: column;
-    padding: 20px;
-`
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+`;
 
 export const Center = styled.div`
-    flex: 1;
-`
+  flex: 1;
+  text-align: center;
+`;
