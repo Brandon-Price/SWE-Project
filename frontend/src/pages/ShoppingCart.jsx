@@ -5,7 +5,7 @@ import { DeleteOutline } from "@material-ui/icons";
 import {Container, Wrapper, Top, TopTexts, TopText, Title, Bottom, Info, Product, ProductInfo, Image,
     ProductDetails, ProductName, ProductID, ProductPrice, PriceContainer, Quantity, Price, Hr, SmallLine,
     CartSummary, SummaryTitle, SummaryItem, SummaryItemText,
-    SummaryItemPrice, Button, EmptyContainer, Line, ButtonLink, Input} from "../styles/ShoppingCart.styles";
+    SummaryItemPrice, Button, EmptyContainer, Line, ButtonLink, Input, Error} from "../styles/ShoppingCart.styles";
 import { useSelector, useDispatch } from "react-redux";
 import StripeCheckout from "react-stripe-checkout";
 import { useEffect, useState } from "react";
@@ -17,8 +17,13 @@ const ShoppingCart = ({ ifUser }) => {
     const dispatch = useDispatch()
     const cart = useSelector(state => state.cart)
     const shipping = 8.99;
-    const [disc, setDisc] = useState('');
-    const discount = (disc === "5OFF" ? 0.05 : 0.0);
+    // entered discount code
+    let discCode = "";
+    // curr discount percentage
+    const [currDisc, setCurrDisc] = useState(0);
+    // discount code list
+    let discList = new Map([["5OFF", 0.05]]);
+    const [discError, setDiscError] = useState(false);
     const tax = (cart.total *0.0825).toFixed(2);
     const finalTotal = (cart.total + (cart.total *0.0825) + shipping).toFixed(2);
     const [stripeToken, setStripeToken] = useState(null);
@@ -51,6 +56,20 @@ const ShoppingCart = ({ ifUser }) => {
         };
         stripeToken && makeRequest();
       }, [stripeToken, cart, history]);
+
+      const handleDiscountEnter = (e) => {
+        if (e.key === "Enter") {
+            console.log("discount code: " + e.target.value);
+            discCode = e.target.value;
+            // handle calculation
+            if (discList.has(discCode)) {
+                setCurrDisc(discList.get(discCode));
+                setDiscError(false);
+            } else {
+                setDiscError(true);
+            }
+        }
+      };
 
     return (
         <Container>
@@ -96,8 +115,8 @@ const ShoppingCart = ({ ifUser }) => {
                             <SummaryItemPrice>$ {shipping}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem>
-                            <SummaryItemText>Discount: <Input/></SummaryItemText>
-                            <SummaryItemText>- $ {disc}</SummaryItemText>
+                            <SummaryItemText>Discount: <Input onKeyDown={(e) => handleDiscountEnter(e)}/></SummaryItemText>
+                            {discError ? <Error>Discount does not exist</Error> : <SummaryItemText>- $ {(finalTotal * currDisc).toFixed(2)}</SummaryItemText>}
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>Tax: </SummaryItemText>
@@ -108,14 +127,14 @@ const ShoppingCart = ({ ifUser }) => {
                         </SummaryItem>
                         <SummaryItem type= "total">
                             <SummaryItemText>Total: </SummaryItemText>
-                            <SummaryItemPrice>$ {finalTotal}</SummaryItemPrice>
+                            <SummaryItemPrice>$ {(finalTotal - (finalTotal * currDisc)).toFixed(2)}</SummaryItemPrice>
                         </SummaryItem>
                         <StripeCheckout
                             name = "TBD"
                             billingAddress
                             shippingAddress
-                            description={`Total $${finalTotal}`}
-                            amount = {finalTotal * 100}
+                            description={`Total $${(finalTotal - (finalTotal * currDisc)).toFixed(2)}`}
+                            amount = {(finalTotal - (finalTotal * currDisc)).toFixed(2) * 100}
                             currency="USD"
                             token = {onToken}
                             stripeKey={process.env.REACT_APP_STRIPE}> 
