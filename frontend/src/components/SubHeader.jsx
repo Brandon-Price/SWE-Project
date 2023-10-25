@@ -28,7 +28,7 @@ const SubHeader = () => {
                     </MenuLink>
                 </Left>
                 <Right>
-                    <InfoOutlined style ={{color: "black", fontSize:20}}/>
+                    <InfoOutlined style ={{color: "white", fontSize:20}}/>
                     <MenuLink to="/help-center">
                         <Menu2>Help Center</Menu2>
                     </MenuLink>

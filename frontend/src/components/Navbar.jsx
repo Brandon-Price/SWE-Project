@@ -54,12 +54,12 @@ const Navbar = () => {
                         <Search style ={{color: "gray", fontSize:20}}/>
                         <Line/>
                         <Input placeholder="Search" onKeyDown={(e) => handleSearch(e)}/>
-                        <Close onClick={() => dispatch(updateFilter(""))}></Close>
+                        <Close style={{color:"gray"}} onClick={() => dispatch(updateFilter(""))}></Close>
                     </SearchContainer>
                 </Center>
                 <Right>
-                    {user ? (<Menu><Title>Hello {user.username}</Title><ExitToApp onClick={handleLogout}/></Menu>) : (<MenuLink to="/account-log-in-sign-up">
-                        <Menu>Register/Sign In</Menu>
+                    {user ? (<Menu><Title>Hello {user.username}</Title><ExitToApp style={{padding:"3px"}} onClick={handleLogout}/></Menu>) : (<MenuLink to="/account-log-in-sign-up">
+                        <Menu>Login</Menu>
                     </MenuLink>)}
                     <Menu>
                         <MenuLink to="/cart">
