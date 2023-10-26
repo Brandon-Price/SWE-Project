@@ -14,6 +14,7 @@ const SignUpSignIn = () => {
     const {isFetching, error} = useSelector((state) => state.user);
     const {isFetchingReg, error2} = useSelector((state) => state.user);
     const [passwordMatchError, setPasswordMatchError] = useState(false);
+
     // Registers user to redux state
     const handleRegister = (e) => {
         e.preventDefault();
@@ -51,7 +52,7 @@ const SignUpSignIn = () => {
                         <Input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
                         <Input placeholder="Confirm Password" type="password" onChange={(e) => handleConfirmPassword(e.target.value)}/>
                         {passwordMatchError && <Error>Passwords do not match</Error>}
-                        {error2 && <Error>Error has occurred</Error>}
+                        {error && <Error>Error has occurred</Error>}
                         <Button onClick={handleRegister} disabled={isFetchingReg}>Create Account</Button>
                     </Form>
                 </LeftContainer>
