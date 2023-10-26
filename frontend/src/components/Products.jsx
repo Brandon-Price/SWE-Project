@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Product from "./Product";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 export const Container = styled.div`
   flex: 1;
@@ -44,7 +44,7 @@ export const GridContainer = styled.div`
 const Products = ({ cat, filters, sort }) => {
   const [products, setProducts] = useState([]);
   const [filterSelect, setFilters] = useState([]);
-  const [searchFilter, setSearchFilter] = useState(useLocation().state);
+  const searchFilter = useSelector(state => state.searchFilter.content)
 
   useEffect(() => {
     const getProducts = async () => {
@@ -77,9 +77,13 @@ const Products = ({ cat, filters, sort }) => {
 
   return (
     <GridContainer>
-      {filterSelect
-        ? filterSelect.map((item) => <Product item={item} key={item._id} />)
-        : products.map((item) => <Product item={item} key={item._id} />)}
+        {filters
+            ? filterSelect.filter(filterSelect => filterSelect.title.toLowerCase()
+            .includes(searchFilter.toLowerCase()))
+            .map((item) => <Product item={item} key={item._id} />)
+            : products.filter(filterSelect => filterSelect.title.toLowerCase()
+            .includes(searchFilter.toLowerCase()))
+                .map((item) => <Product item={item} key={item._id} />)}
     </GridContainer>
   );
 };
