@@ -1,21 +1,31 @@
-import React from 'react';
 import SubHeader from '../components/SubHeader';
 import Navbar from '../components/Navbar';
-import Slider from '../components/Slider';
 import Footer from '../components/Footer';
+import React, { useState, useEffect } from 'react';
+import Slider from '../components/Slider';
+import axios from 'axios';
 
-// TODO
-// Create a new type of slider item to make the front page look better
-// Maybe something like a carousel with items from our site, doesn't have to be dynamic
-const Home = () => {
+function Home() {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:5000/api/products')
+            .then((response) => {
+                setProducts(response.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching product data', error);
+            });
+    }, []);
+
     return (
         <div>
-            <Navbar/>
+            <Navbar />
             <SubHeader />
-            <Slider />
-            <Footer/>
+            <Slider products={products} />
+            <Footer />
         </div>
-    )
+    );
 }
 
-export default Home
+export default Home;

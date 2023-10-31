@@ -1,55 +1,34 @@
-import React, {useState} from "react";
-import { NavigateBeforeOutlined, NavigateNextOutlined } from "@material-ui/icons";
-import { sliderItems } from "../data";
-import {Container, Arrow, Wrapper, SlideContainer, ImageContainer, InfoContainer, Title, Description, Button, Image} from "../styles/Slider.styles.jsx";
-import {
-    BrowserRouter as Router,
-    Route,
-    Routes,
-    Navigate,
-    useNavigate,
-  } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { Carousel } from 'react-responsive-carousel';
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
-// Slider is the carousel with the images and the arrows. 
+const Slider = ({ products }) => {
+    const [currentSlide, setCurrentSlide] = useState(0);
 
-const Slider = () => {
-    const [slideIndex, setSlideIndex] = useState(0);
-    // const handleClick = (direction) => {
-    //     if(direction === "left"){
-    //         setSlideIndex(slideIndex > 0 ? slideIndex - 1: 2);
-    //     }
-    //     else {
-    //         setSlideIndex(slideIndex < 2 ? slideIndex + 1: 0);
-    //     }
-    // };
-    // route to products page
-    let navigate = useNavigate();
-    const handleShopNow = () => {
-        let path = '/products/';
-        navigate(path);
-    };
+    useEffect(() => {
+        // Slides in 5 sec intervals
+        const interval = setInterval(() => {
+            setCurrentSlide((currentSlide + 1) % products.length);
+        }, 5000);
+
+        return () => clearInterval(interval);
+
+    }, [currentSlide, products]);
 
     return (
-        <Container>
-            <Wrapper slideIndex = {slideIndex}>
-                {sliderItems.map(item=>(
-                    <SlideContainer bg = {item.bg} key={item.id}>
-                        <ImageContainer>
-                            <Image src={item.img}/>
-                        </ImageContainer>
-                        <InfoContainer>
-                            <Title>{item.title}</Title>
-                            <Description>{item.desc}</Description>
-                            <Button onClick={() => handleShopNow()}>SHOP NOW</Button>
-                        </InfoContainer>
-                        <ImageContainer>
-                            <Image src={item.img2}/>
-                        </ImageContainer>
-                    </SlideContainer>
-                ))}
-            </Wrapper>
-        </Container>
+        <Carousel
+            showThumbs={false}
+            selectedItem={currentSlide}
+        >
+            {products.map((product, index) => (
+                <div key={product._id}>
+                    <img src={product.img} alt={product.title} />
+                    {/*<p>{product.title}</p>*/}
+                    {/*<p>{product.desc}</p>*/}
+                </div>
+            ))}
+        </Carousel>
     );
 };
 
-export default Slider
+export default Slider;

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 100%;
-    height: 100vh;
+    width: 50%;
+    height: 50vh;
     display: flex;
     position: relative;
     overflow: hidden;
@@ -28,56 +28,55 @@ export const Arrow = styled.div`
 `
 
 export const Wrapper = styled.div`
-    height: 100%;
+    height: 50vh; /* Adjust the height as per your requirements */
     display: flex;
     transition: all 1.0s ease;
-    transform: translateX(${props => props.slideIndex * -100}vw)
+    transform: translateX(${props => props.slideIndex * -100}vw);
 `
 
 export const SlideContainer = styled.div`
-    width: 100vw;
-    height: 110vh;
+    width: 50vw;
+    height: 50%; /* Take up the entire height of the Wrapper */
     display: flex;
     align-items: center;
     background-color: #${props => props.bg};
 `
 
 export const ImageContainer = styled.div`
-    flex:1;
-    height: 100%;
+    flex: 1;
+    height: 50%;
     transform: translateZ(0);
 `
 
 export const InfoContainer = styled.div`
-    flex:1;
-    padding: 50px;
+    flex: 1;
+    padding: 20px; /* Reduced padding to make it smaller */
     text-align: center;
     align-items: center;
     justify-content: center;
     position: absolute;
     left: 33%;
-    z-index: 3
+    z-index: 3;
 `
 
 export const Title = styled.h1`
-    font-size: 70px;
+    font-size: 40px; /* Reduced font size */
     color: white;
     background-color: rgba(52, 52, 52, 0.2);
-    
 `
 
 export const Description = styled.p`
-    margin: 50px 0px;
-    font-size: 30px;
+    margin: 20px 0px; /* Reduced margin */
+    font-size: 20px; /* Reduced font size */
     font-weight: 500;
-    letter-spacing: 2px;
+    letter-spacing: 1px; /* Reduced letter spacing */
     color: white;
     background-color: rgba(52, 52, 52, 0.2);
 `
 
 export const Button = styled.button`
     padding: 10px;
-    font-size: 18px;
+    font-size: 16px; /* Reduced font size */
     cursor: pointer;
     color: black;
     background-color: white;
@@ -90,7 +89,7 @@ export const Button = styled.button`
 `
 
 export const Image = styled.img`
-    height: 85%;
-    width: 100%;
+    height: 5%;
+    width: 5%;
     object-fit: cover;
 `

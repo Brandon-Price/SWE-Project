@@ -3,8 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { updateFilter } from '../redux/searchFilter.js';
 import {MenuLink, Container, Wrapper, Left, Right, Menu, Menu2} from "../styles/SubHeader.styles";
 
-
-// The subheader contains the pages to go around the site
 const SubHeader = () => {
     const dispatch = useDispatch();
     const searchFilter = useSelector(state => state.searchFilter)
