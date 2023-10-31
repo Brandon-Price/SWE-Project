@@ -5,8 +5,7 @@ const Product = ({ item }) => {
   return (
     <Container>
       <Image src={item.img} />
-          <Info>
-        <Title>{item.title}</Title>
+      <Info>
         <Name>{item.name}</Name>
         <Price>${item.price}</Price>
         <Quantity>Quantity: {item.quantity}</Quantity>
