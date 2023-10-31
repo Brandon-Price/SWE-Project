@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   flex: 1;
-  padding: 15px;
-  margin: 20px;
+  padding: 20px;
+  margin: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,7 +20,7 @@ export const Container = styled.div`
 `;
 
 export const Image = styled.img`
-  height: 250px;
+  height: 220px;
   object-fit: contain;
   max-width: 100%;
 `;

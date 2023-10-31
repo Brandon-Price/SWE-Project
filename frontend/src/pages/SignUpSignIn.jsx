@@ -52,7 +52,7 @@ const SignUpSignIn = () => {
                         <Input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
                         <Input placeholder="Confirm Password" type="password" onChange={(e) => handleConfirmPassword(e.target.value)}/>
                         {passwordMatchError && <Error>Passwords do not match</Error>}
-                        {error && <Error>Error has occurred</Error>}
+                        {error2 && <Error>Error has occurred</Error>}
                         <Button onClick={handleRegister} disabled={isFetchingReg}>Create Account</Button>
                     </Form>
                 </LeftContainer>
