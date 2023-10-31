@@ -6,6 +6,7 @@ const Product = ({ item }) => {
     <Container>
       <Image src={item.img} />
       <Info>
+        <Title>{item.title}</Title>
         <Name>{item.name}</Name>
         <Price>${item.price}</Price>
         <Quantity>Quantity: {item.quantity}</Quantity>
