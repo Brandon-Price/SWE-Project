@@ -31,6 +31,11 @@ export const Info = styled.div`
   padding: 10px;
 `;
 
+export const Title = styled.h2`
+  font-size: 18px;
+  margin: 10px 0;
+`;
+
 export const Name = styled.h2`
   font-size: 18px;
   margin: 10px 0;

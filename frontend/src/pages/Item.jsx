@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom";
 import { publicRequest } from "../request";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch } from "react-redux";
-import {Container, Wrapper, ImgContainer, InfoContainer, Image, Title, Desc, Price, AddtoCart, AmountContainer, Amount, Button, Quantity, Hr} from "../styles/Item.styles"
+import {Container, Wrapper, ImgContainer, InfoContainer, Image, Title, Desc, Name, Price, AddtoCart, AmountContainer, Amount, Button, Quantity, Hr} from "../styles/Item.styles"
 
 const Item = () => {
     // Location is for looking at the url and parsing it for the id
@@ -61,6 +61,7 @@ const Item = () => {
                 </ImgContainer>
                 <InfoContainer>
                     <Title>{items.title}</Title>
+                    <Name>{items.name}</Name>
                     <Desc>{items.desc}</Desc>
                     <Price>${items.price}</Price>
                     <br/>
