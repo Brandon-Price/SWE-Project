@@ -36,11 +36,6 @@ export const Title = styled.h2`
   margin: 10px 0;
 `;
 
-export const Name = styled.h2`
-  font-size: 18px;
-  margin: 10px 0;
-`;
-
 export const Price = styled.p`
   font-size: 16px;
 `;

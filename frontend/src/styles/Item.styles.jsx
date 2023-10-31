@@ -32,11 +32,6 @@ export const Desc = styled.p`
     margin: 20px 0px;
 `
 
-export const Name = styled.span`
-    font-weight: 100;
-    font-size: 40px;
-`
-
 export const Price = styled.span`
     font-weight: 100;
     font-size: 40px;
