@@ -27,9 +27,44 @@ const Success = () => {
     const handleCart = (e) => {
       e.preventDefault();
       
-      // temp, will implement removing items that were purchased from those available
-      // cartItems.forEach((item) => * remove from available *);
+      // ****** only works when user is logged in as an admin
+      /*
+      // remove item from quantity in database
+      for (let index = 0; index < cartItems.length; index++) {
 
+        // get current product
+        let currProduct = [];
+        axios.get("http://localhost:5000/api/products/" + cartItems[index].id)
+        .then((response) => {
+          console.log(response);
+          currProduct = response.data;
+          currProduct.quantity -= cartItems[index].quantity;
+        })
+        .catch((error) => {
+          console.error(error)
+        });
+
+        // update with decremented quantity
+        if (currProduct) {
+          axios.put("http://localhost:5000/api/products/" + cartItems[index].id, {
+            currProduct
+          }, {
+            headers: {
+              // needs to be changed to admin token, currently only works when logged in user is admin
+            token: `Bearer ${user.accessToken}`
+          }
+        })
+          .then((response) => {
+            console.log(response);
+          })
+          .catch((error) => {
+            console.error(error)
+          });
+      }
+      }
+      */
+
+      
       // post to api
       axios.post("http://localhost:5000/api/orders/", {
         userId: user._id,
