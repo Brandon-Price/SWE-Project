@@ -27,8 +27,8 @@ const Success = () => {
     const handleCart = (e) => {
       e.preventDefault();
       
-      // ****** only works when user is logged in as an admin
-      /*
+      /* only works when user is logged in as an admin
+      ********************************************************************************************************
       // remove item from quantity in database
       for (let index = 0; index < cartItems.length; index++) {
 
@@ -62,6 +62,7 @@ const Success = () => {
           });
       }
       }
+      ********************************************************************************************************
       */
 
       
