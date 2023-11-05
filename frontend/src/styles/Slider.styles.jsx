@@ -1,42 +1,24 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    width: 50%;
+    width: 60%; /* Adjust the width as needed */
     height: 50vh;
     display: flex;
     position: relative;
     overflow: hidden;
 `
 
-export const Arrow = styled.div`
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    background-color: white;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: ${props => props.direction === "left" && "10px"};
-    right: ${props => props.direction === "right" && "10px"};
-    margin: auto;
-    cursor: pointer;
-    opacity: 0.5;
-    z-index: 2;
-`
-
 export const Wrapper = styled.div`
-    height: 50vh; /* Adjust the height as per your requirements */
+    height: 50vh;
     display: flex;
     transition: all 1.0s ease;
     transform: translateX(${props => props.slideIndex * -100}vw);
 `
 
+
 export const SlideContainer = styled.div`
-    width: 50vw;
-    height: 50%; /* Take up the entire height of the Wrapper */
+    width: 60vw; /* Adjust the width as needed */
+    height: 50%;
     display: flex;
     align-items: center;
     background-color: #${props => props.bg};
@@ -44,39 +26,39 @@ export const SlideContainer = styled.div`
 
 export const ImageContainer = styled.div`
     flex: 1;
-    height: 50%;
+    height: 100%; /* To fill the entire height of SlideContainer */
     transform: translateZ(0);
 `
 
 export const InfoContainer = styled.div`
     flex: 1;
-    padding: 20px; /* Reduced padding to make it smaller */
+    padding: 10px; /* Reduced padding to make it smaller */
     text-align: center;
     align-items: center;
     justify-content: center;
     position: absolute;
-    left: 33%;
+    left: 20%; /* Adjust the positioning as needed */
     z-index: 3;
 `
 
 export const Title = styled.h1`
-    font-size: 40px; /* Reduced font size */
+    font-size: 24px; /* Adjust font size as needed */
     color: white;
     background-color: rgba(52, 52, 52, 0.2);
 `
 
 export const Description = styled.p`
-    margin: 20px 0px; /* Reduced margin */
-    font-size: 20px; /* Reduced font size */
+    margin: 10px 0px; /* Adjust margin as needed */
+    font-size: 16px; /* Adjust font size as needed */
     font-weight: 500;
-    letter-spacing: 1px; /* Reduced letter spacing */
+    letter-spacing: 1px;
     color: white;
     background-color: rgba(52, 52, 52, 0.2);
 `
 
 export const Button = styled.button`
-    padding: 10px;
-    font-size: 16px; /* Reduced font size */
+    padding: 8px; /* Adjust padding as needed */
+    font-size: 14px; /* Adjust font size as needed */
     cursor: pointer;
     color: black;
     background-color: white;
@@ -89,7 +71,7 @@ export const Button = styled.button`
 `
 
 export const Image = styled.img`
-    height: 5%;
-    width: 5%;
-    object-fit: cover;
-`
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain; /* or object-fit: cover; depending on your preference */
+`;

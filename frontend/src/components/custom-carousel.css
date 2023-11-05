@@ -1,0 +1,10 @@
+.carousel {
+    width: 100% !important;
+    height: 90vh !important;
+}
+
+.carousel .slide img {
+    max-width: 50%;
+    max-height: 50%;
+    object-fit: contain;
+}
