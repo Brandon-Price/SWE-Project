@@ -6,6 +6,7 @@ import {Container, FilterContainer, Filter, FilterText, Select, Option, EmptyCon
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import AddForm from "../components/AddForm";
+import { useSelector } from "react-redux";
 
 // Will be handling the item filters and their containers
 
@@ -15,6 +16,7 @@ const ItemList = ({user, setUser}) => {
     const [filters, setFilter] = useState({});
     const [sort, setSort] = useState("Price Ascending");
     const [isAdminBarVisible, setAdminBarVisibility] = useState(false);
+    user = useSelector((state) => state.user.currentUser);
 
     const handleFilter = (e) => {
         const value = e.target.value;
@@ -46,9 +48,9 @@ const ItemList = ({user, setUser}) => {
                 </Filter>
             </FilterContainer>
             {user != null && user.isAdmin &&
-            <div>
-                <button type="button" onClick={toggleAdminBar}>Admin Options</button>
-            </div>}
+                <div>
+                    <button type="button" onClick={toggleAdminBar}>Admin Options</button>
+                </div>}
             {isAdminBarVisible && 
             <AdminBar onClose={toggleAdminBar}>
                 <AddForm></AddForm>

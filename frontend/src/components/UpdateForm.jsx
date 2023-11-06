@@ -62,7 +62,6 @@ const UpdateForm = ({onClose}) => {
 
   return (
     <div>
-        <span onClick={onClose}>Cancel</span>
         <form onSubmit={handleSubmit}>
             <div>
                 <label for="title">Title: </label>
