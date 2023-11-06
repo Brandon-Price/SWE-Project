@@ -92,10 +92,41 @@ export const Button = styled.button`
 
 export const AdminBar = styled.div`
     width: wrap_content;
-    height: wrap_content;
+    height: 330px;
     padding: 10px;
     margin-left: 10px;
     border: 1px solid;
     border-radius: 10px;
     background: white;
+`
+
+export const AdminButton = styled.button`
+    width: wrap-content;
+    height: wrap-content;
+    margin-left: 10px;
+    padding: 10px;
+    color: white;
+    background-color: #00704A;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 12pt;
+`
+
+export const Button2 = styled.button`
+    width: wrap-content;
+    height: wrap-content;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid;
+    background-color: white;
+    cursor: pointer;
+    transition: all .5s ease;
+    border-radius: 5px;
+    font-size: 12px;
+
+    &:hover {
+        transform: scale(1.1);
+        background-color: black;
+        color: white;
+    }
 `

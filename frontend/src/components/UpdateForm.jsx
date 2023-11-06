@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../request";
+import { Button2 } from "../styles/Item.styles"
 
 const UpdateForm = ({onClose}) => {
     const location = useLocation();
@@ -94,9 +95,8 @@ const UpdateForm = ({onClose}) => {
                 <br/>
                 <input type="text" name="img" id="img" onChange={handleInputChange} value={formData.img}/>
             </div>
-            <br/>
             <div>
-                <button type="submit">Submit</button>
+                <Button2 type="submit">Submit</Button2>
             </div>
         </form>
     </div>

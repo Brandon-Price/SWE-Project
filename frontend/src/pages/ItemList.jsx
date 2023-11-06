@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import SubHeader from "../components/SubHeader";
 import Footer from "../components/Footer";
 import Products from "../components/Products";
-import {Container, FilterContainer, Filter, FilterText, Select, Option, EmptyContainer, AdminBar} from "../styles/ItemList.styles";
+import {Container, FilterContainer, Filter, FilterText, Select, Option, EmptyContainer, AdminBar, AdminButton} from "../styles/ItemList.styles";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import AddForm from "../components/AddForm";
@@ -49,7 +49,7 @@ const ItemList = ({user, setUser}) => {
             </FilterContainer>
             {user != null && user.isAdmin &&
                 <div>
-                    <button type="button" onClick={toggleAdminBar}>Admin Options</button>
+                    <AdminButton type="button" onClick={toggleAdminBar}>Admin Options</AdminButton>
                 </div>}
             {isAdminBarVisible && 
             <AdminBar onClose={toggleAdminBar}>

@@ -45,3 +45,34 @@ export const AdminBar = styled.div`
     border-radius: 5px;
     background-color: white;
 `
+
+export const AdminButton = styled.button`
+    width: wrap-content;
+    height: wrap-content;
+    margin-left: 10px;
+    padding: 10px;
+    color: white;
+    background-color: #00704A;
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 12pt;
+`
+
+export const Button = styled.button`
+    width: wrap-content;
+    height: wrap-content;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid;
+    background-color: white;
+    cursor: pointer;
+    transition: all .5s ease;
+    border-radius: 5px;
+    font-size: 12px;
+
+    &:hover {
+        transform: scale(1.1);
+        background-color: black;
+        color: white;
+    }
+`

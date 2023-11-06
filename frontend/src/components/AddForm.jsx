@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useDispatch, useSelector } from "react-redux";
+import { Button } from "../styles/ItemList.styles";
 
 const AddForm = ({onClose}) => {
   const [formData, setFormData] = useState({ title: '', desc: '', categories: '', price: '', quantity: '', img: '' });
@@ -60,7 +61,7 @@ const AddForm = ({onClose}) => {
             </div>
             <br/>
             <div>
-                <button type="submit">Submit</button>
+                <Button type="submit">Submit</Button>
             </div>
         </form>
     </div>

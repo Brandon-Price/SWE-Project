@@ -8,7 +8,7 @@ import { useLocation } from "react-router-dom";
 import { publicRequest } from "../request";
 import { addProduct } from "../redux/cartRedux";
 import { useDispatch, useSelector } from "react-redux";
-import {Container, Wrapper, ImgContainer, InfoContainer, Image, Title, Desc, Price, AddtoCart, AmountContainer, Amount, Button, Quantity, Hr, AdminBar} from "../styles/Item.styles"
+import {Container, Wrapper, ImgContainer, InfoContainer, Image, Title, Desc, Price, AddtoCart, AmountContainer, Amount, Button, Quantity, Hr, AdminBar, AdminButton, Button2} from "../styles/Item.styles"
 import UpdateForm from "../components/UpdateForm"
 
 const Item = () => {
@@ -100,12 +100,12 @@ const Item = () => {
                 </InfoContainer>
                 {user != null && user.isAdmin &&
                     <div>
-                        <button type="button" onClick={toggleAdminBar}>Admin Options</button>
+                        <AdminButton type="button" onClick={toggleAdminBar}>Admin Options</AdminButton>
                     </div>}
                 {isAdminBarVisible && 
                 <AdminBar onClose={toggleAdminBar}>
                     <UpdateForm></UpdateForm>
-                    <button type="button" onClick={handleDeleteClick}>Delete</button>
+                    <Button2 type="button" onClick={handleDeleteClick}>Delete</Button2>
                 </AdminBar>}
             </Wrapper>
             <Footer/>
