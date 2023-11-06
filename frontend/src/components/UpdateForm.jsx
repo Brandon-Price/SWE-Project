@@ -64,6 +64,8 @@ const UpdateForm = ({onClose}) => {
 
   return (
     <div>
+        <h2>Update Item</h2>
+        <br/>
         <form onSubmit={handleSubmit}>
             <div>
                 <label for="title">Title: </label>

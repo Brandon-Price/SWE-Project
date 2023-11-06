@@ -28,6 +28,8 @@ const AddForm = ({onClose}) => {
 
   return (
     <div>
+        <h2>Add Item</h2>
+        <br/>
         <form onSubmit={handleSubmit}>
             <div>
                 <label for="title">Title: </label>
@@ -59,7 +61,6 @@ const AddForm = ({onClose}) => {
                 <br/>
                 <input type="text" name="img" id="img" onChange={handleInputChange} value={formData.img}/>
             </div>
-            <br/>
             <div>
                 <Button type="submit">Submit</Button>
             </div>

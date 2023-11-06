@@ -105,6 +105,8 @@ const Item = () => {
                 {isAdminBarVisible && 
                 <AdminBar onClose={toggleAdminBar}>
                     <UpdateForm></UpdateForm>
+                    <br/>
+                    <h2>Delete Item</h2>
                     <Button2 type="button" onClick={handleDeleteClick}>Delete</Button2>
                 </AdminBar>}
             </Wrapper>

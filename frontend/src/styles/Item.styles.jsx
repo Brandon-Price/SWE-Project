@@ -92,7 +92,7 @@ export const Button = styled.button`
 
 export const AdminBar = styled.div`
     width: wrap_content;
-    height: 330px;
+    height: 410px;
     padding: 10px;
     margin-left: 10px;
     border: 1px solid;
@@ -106,7 +106,7 @@ export const AdminButton = styled.button`
     margin-left: 10px;
     padding: 10px;
     color: white;
-    background-color: #00704A;
+    background-color: #00704a;
     border: 1px solid;
     border-radius: 5px;
     font-size: 12pt;
@@ -115,7 +115,7 @@ export const AdminButton = styled.button`
 export const Button2 = styled.button`
     width: wrap-content;
     height: wrap-content;
-    margin: 5px;
+    margin-top: 10px;
     padding: 5px;
     border: 1px solid;
     background-color: white;
