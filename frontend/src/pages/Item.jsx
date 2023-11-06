@@ -63,6 +63,7 @@ const Item = () => {
         })
         .then(response => {
             console.log(`Resource deleted: ${id}`);
+            window.location.href = "http://localhost:3000/products/";
         })
         .catch(error => {
             console.error('Error deleting resource:', error);

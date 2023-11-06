@@ -51,6 +51,7 @@ const UpdateForm = ({onClose}) => {
                 }
         });
       console.log('Data sent successfully:', response.data);
+      window.location.reload();
     } catch (error) {
       console.error('Error sending data:', error);
     }
