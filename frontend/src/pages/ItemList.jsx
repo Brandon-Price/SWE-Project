@@ -2,9 +2,10 @@ import Navbar from "../components/Navbar";
 import SubHeader from "../components/SubHeader";
 import Footer from "../components/Footer";
 import Products from "../components/Products";
-import {Container, FilterContainer, Filter, FilterText, Select, Option, EmptyContainer} from "../styles/ItemList.styles";
+import {Container, FilterContainer, Filter, FilterText, Select, Option, EmptyContainer, AdminBar} from "../styles/ItemList.styles";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
+import AddForm from "../components/AddForm";
 
 // Will be handling the item filters and their containers
 
@@ -13,6 +14,7 @@ const ItemList = ({user, setUser}) => {
     const cat = location.pathname.split("/")[2];
     const [filters, setFilter] = useState({});
     const [sort, setSort] = useState("Price Ascending");
+    const [isAdminBarVisible, setAdminBarVisibility] = useState(false);
 
     const handleFilter = (e) => {
         const value = e.target.value;
@@ -20,6 +22,10 @@ const ItemList = ({user, setUser}) => {
             ...filters,
             [e.target.name]: value,
         });
+    };
+
+    const toggleAdminBar = () => {
+        setAdminBarVisibility(!isAdminBarVisible);
     };
 
     return(
@@ -39,6 +45,14 @@ const ItemList = ({user, setUser}) => {
                     </Select>
                 </Filter>
             </FilterContainer>
+            {user != null && user.isAdmin &&
+            <div>
+                <button type="button" onClick={toggleAdminBar}>Admin Options</button>
+            </div>}
+            {isAdminBarVisible && 
+            <AdminBar onClose={toggleAdminBar}>
+                <AddForm></AddForm>
+            </AdminBar>}
             <Products cat = {cat} filters={filters} sort={sort}/>
             <EmptyContainer/>
             <Footer/>

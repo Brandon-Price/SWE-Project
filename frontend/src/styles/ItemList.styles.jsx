@@ -35,3 +35,13 @@ export const EmptyContainer = styled.div`
 export const Option = styled.option`
 
 `
+
+export const AdminBar = styled.div`
+    width: 180px;
+    height: wrap_content;
+    padding: 10px;
+    margin-left: 10px;
+    border: 1px solid;
+    border-radius: 5px;
+    background-color: white;
+`

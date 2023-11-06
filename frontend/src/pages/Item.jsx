@@ -1,13 +1,15 @@
 import Navbar from "../components/Navbar";
 import SubHeader from "../components/SubHeader";
 import Footer from "../components/Footer";
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { Add, Remove } from "@material-ui/icons";
 import { useLocation } from "react-router-dom";
 import { publicRequest } from "../request";
 import { addProduct } from "../redux/cartRedux";
-import { useDispatch } from "react-redux";
-import {Container, Wrapper, ImgContainer, InfoContainer, Image, Title, Desc, Price, AddtoCart, AmountContainer, Amount, Button, Quantity, Hr} from "../styles/Item.styles"
+import { useDispatch, useSelector } from "react-redux";
+import {Container, Wrapper, ImgContainer, InfoContainer, Image, Title, Desc, Price, AddtoCart, AmountContainer, Amount, Button, Quantity, Hr, AdminBar} from "../styles/Item.styles"
+import UpdateForm from "../components/UpdateForm"
 
 const Item = () => {
     // Location is for looking at the url and parsing it for the id
@@ -16,6 +18,8 @@ const Item = () => {
     const [items, setItems] = useState({});
     const [quantity, setQuantity] = useState(1);
     const dispatch = useDispatch();
+    const user = useSelector((state) => state.user.currentUser);
+    const [isAdminBarVisible, setAdminBarVisibility] = useState(false);
 
     // Looks for the item in our api route with its id that we parse from the url
     useEffect(() => {
@@ -51,6 +55,24 @@ const Item = () => {
         //items.quantity -= quantity
     }
 
+    const handleDeleteClick = async (e) => {
+        axios.delete(`http://localhost:5000/api/products/${id}`, {
+                headers: {
+                        token: `Bearer ${user.accessToken}`
+                }
+        })
+        .then(response => {
+            console.log(`Resource deleted: ${id}`);
+        })
+        .catch(error => {
+            console.error('Error deleting resource:', error);
+        });
+    }
+
+    const toggleAdminBar = () => {
+        setAdminBarVisibility(!isAdminBarVisible);
+    };
+
     return (
         <Container>
             <Navbar/>
@@ -75,9 +97,19 @@ const Item = () => {
                     </AddtoCart>
                     <Button onClick={handleButtonClick}>Add to Cart</Button>
                 </InfoContainer>
+                {user != null && user.isAdmin &&
+                    <div>
+                        <button type="button" onClick={toggleAdminBar}>Admin Options</button>
+                    </div>}
+                {isAdminBarVisible && 
+                <AdminBar onClose={toggleAdminBar}>
+                    <UpdateForm></UpdateForm>
+                    <button type="button" onClick={handleDeleteClick}>Delete</button>
+                </AdminBar>}
             </Wrapper>
             <Footer/>
         </Container>
+        
     )
 }
 

@@ -89,3 +89,13 @@ export const Button = styled.button`
         color: white;
     }
 `
+
+export const AdminBar = styled.div`
+    width: wrap_content;
+    height: wrap_content;
+    padding: 10px;
+    margin-left: 10px;
+    border: 1px solid;
+    border-radius: 10px;
+    background: white;
+`
