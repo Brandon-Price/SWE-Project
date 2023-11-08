@@ -71,7 +71,7 @@ const Success = () => {
         userId: user._id,
         products: cartItems.products,
         // not sure why there is an amount required from the database when each product has an amount already, just gonna put 1
-        amount: 1,
+        amount: cartItems.total,
         // *** need to get this address
         address: "test",
         status: "Ordered"
