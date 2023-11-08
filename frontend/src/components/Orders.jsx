@@ -1,5 +1,5 @@
 import {Container, FilterContainer, Filter, FilterText, Select, Option, EmptyContainer} from "../styles/ItemList.styles.jsx";
-import Order from "./Order";
+import order from "./Order";
 import { useState } from "react";
 const Orders = () => {
     const [sort, setSort] = useState("Last 30 Days");

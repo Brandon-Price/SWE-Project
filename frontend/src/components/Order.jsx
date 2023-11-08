@@ -1,20 +1,38 @@
 import {Link} from "react-router-dom";
-import {Container,  Image, Info, OrderNumber, Name, Price, Quantity, Address} from "../styles/Orders.styles.jsx";
+import {Container, Info, User, Product, Amount, Address, Status, Button} from "../styles/Orders.styles.jsx";
 
 
-const Order = ({item}) => {
-    
+//Add Title and Image
+
+const Order = ({ order }) => {
     return (
     <Container>
-    <OrderNumber/>
     <Info>
-        <Image src = {item.img}/>
-        <Name>{item.name}</Name>
-        <Quantity>{/*Number of Items Ordered*/}</Quantity>
-        <Price>${item.price} {/*Times Quantity Ordered*/}</Price>
+        <User>{order.userID}</User>
+        <Product>{order.products}</Product>
+        <Amount>{order.amount}</Amount>
+        <Address>{order.address}</Address>
+        <Status>{order.status}</Status>
     </Info> 
     </Container> 
     )
+
+    /*userId:{type: String, required:true},
+        products:[
+            {
+                productId:{
+                    type:String
+                },
+                quantity:{
+                    type: Number,
+                    default: 1
+                },
+            },
+        ],
+        amount: {type: Number, required: true},
+        address: {type: Object, required:true},
+        status: {type: String, default:"Ordered"}
+        */
 }
 
 export default Order

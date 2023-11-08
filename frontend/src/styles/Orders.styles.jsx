@@ -5,11 +5,6 @@ export const Container = styled.div`
    margin: 50px;
 `
 
-export const Image = styled.img`
-  height: 250px;
-  object-fit: contain;
-  max-width: 100%;
-`;
 
 export const Info = styled.div`
   width: 100%;
@@ -17,23 +12,39 @@ export const Info = styled.div`
   padding: 10px;
 `;
 
-export const OrderNumber = styled.p`
-  font-size: 16px;
-`;
 
-export const Name = styled.h2`
+export const User = styled.h2`
   font-size: 18px;
   margin: 10px 0;
 `;
 
-export const Price = styled.p`
+export const Product = styled.p`
   font-size: 16px;
 `;
 
-export const Quantity = styled.p`
+export const Amount = styled.p`
   font-size: 16px;
 `;
 
 export const Address = styled.p`
   font-size: 16px;
+`;
+
+export const Status = styled.p`
+  font-size: 16px;
+`;
+
+export const Button = styled.button`
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #008000;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #006400;
+  }
 `;
