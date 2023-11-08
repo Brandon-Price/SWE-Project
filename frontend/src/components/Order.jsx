@@ -2,7 +2,6 @@ import {Link} from "react-router-dom";
 import {Container, Info, User, Product, Amount, Address, Status, Button} from "../styles/Orders.styles.jsx";
 
 
-//Add Title and Image
 
 const Order = ({ order }) => {
     return (
