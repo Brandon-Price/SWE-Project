@@ -1,5 +1,4 @@
-import {Link} from "react-router-dom";
-import {Container, Info, User, Product, Amount, Address, Status, Button} from "../styles/Orders.styles.jsx";
+import {Container, Info, User, Product, Amount, Address, Status} from "../styles/Orders.styles.jsx";
 
 
 
