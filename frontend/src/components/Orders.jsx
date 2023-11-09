@@ -93,13 +93,9 @@ const Orders = (filters, sort) => {
 
     return (
     <Container>
-        {filters
-            ? filterSelect.filter(filterSelect => filterSelect.title.toLowerCase()
-            .includes(searchFilter.toLowerCase()))
-            .map((order) => <Order order={order} key={order._id} />)
-            : orders.filter(filterSelect => filterSelect.title.toLowerCase()
-            .includes(searchFilter.toLowerCase()))
-                .map((order) => <Order order={order} key={order._id} />)}
+      {filterSelect
+        ? filterSelect.map((order) => <Order order={order} key={order._id} />)
+        : orders.map((order) => <Order order={order} key={order._id} />)}
     </Container>
         
     );
