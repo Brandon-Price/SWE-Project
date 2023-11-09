@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 const OrderHistory = ({user}) => {
 
     const [filters] = useState({});
-    const [setSort] = useState("Price Ascending");
+    const [sort, setSort] = useState("Last 30 Days");
     const [isAdminBarVisible, setAdminBarVisibility] = useState(false);
     user = useSelector((state) => state.user.currentUser);
 
@@ -30,9 +30,9 @@ const OrderHistory = ({user}) => {
                 <Filter>
                     <FilterText>Product Sort:</FilterText>
                     <Select name="sort" onChange = {(e) => setSort(e.target.value)}>
-                        <Option value="ascending">Price Ascending</Option>
-                        <Option value="descending">Price Descending</Option>
-                        <Option value="quantity">Quantity Remaining</Option>
+                        <Option value="Last 30">Last 30 Days</Option>
+                        <Option value="Last 90">Last 90 Days</Option>
+                        <Option value="User ID">User ID</Option>
                     </Select>
                 </Filter>
             </FilterContainer>
