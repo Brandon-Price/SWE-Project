@@ -74,7 +74,7 @@ const Orders = (filters, sort) => {
                     }
             });
           console.log('Data obtained successfully:', response.data);
-          setOrders(response.data);
+          setOrders(response);
         } catch (error) {
           console.error('Error getting data:', error);
         }
