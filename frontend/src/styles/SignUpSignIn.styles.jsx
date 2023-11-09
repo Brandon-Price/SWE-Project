@@ -7,16 +7,8 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     overflow: hidden;
-`
-
-export const Image = styled.div`
     background-image: url(https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?cs=srgb&dl=pexels-tae-fuller-1141853.jpg&fm=jpg);
     background-size: cover;
-    background-position: center;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    filter: blur(3px);
 `
 
 export const Line = styled.div`

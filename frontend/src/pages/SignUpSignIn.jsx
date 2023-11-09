@@ -42,7 +42,6 @@ const SignUpSignIn = () => {
 
     return (
         <Container>
-            <Image></Image>
             <Wrapper>
                 <LeftContainer>
                     <Title>Create an Account</Title>
