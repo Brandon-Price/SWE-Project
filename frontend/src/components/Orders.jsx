@@ -44,19 +44,19 @@ const Orders = (filters, sort) => {
 
     useEffect(() => {
         const getOrders = async () => {
-    axios.get(`http://localhost:5000/api/orders/find/${user._id}`, {
-        userId: user._id,
-      }, {
-        headers: {
-        token: `Bearer ${user.accessToken}`
-      }
-    })
-      .then((response) => {
+         axios.get(`http://localhost:5000/api/orders/find/${user._id}`, {
+             userId: user._id,
+            }, {
+            headers: {
+            token: `Bearer ${user.accessToken}`
+        }
+        })
+        .then((response) => {
         console.log(response);
-      })
-      .catch((error) => {
-        console.error(error)
-      });
+        })
+        .catch((error) => {
+            console.error(error)
+        });
     };
     getOrders();
     }, []);
