@@ -42,24 +42,40 @@ const Orders = (filters, sort) => {
     }, []);
     */
 
+    // useEffect(() => {
+    //     const getOrders = async () => {
+    //     const response = await axios.get(`http://localhost:5000/api/orders/find/${user._id}`, {
+    //     userId: user._id,
+    //   }, {
+    //     headers: {
+    //     token: `Bearer ${user.accessToken}`
+    //   }
+    // })
+    //   .then((response) => {
+    //     console.log(response);
+    //   })
+    //   .catch((error) => {
+    //     console.error(error)
+    //   });
+    // };
+    // getOrders();
+    // }, []);
+
     useEffect(() => {
         const getOrders = async () => {
-    axios.get(`http://localhost:5000/api/orders/find/${user._id}`, {
-        userId: user._id,
-      }, {
-        headers: {
-        token: `Bearer ${user.accessToken}`
-      }
-    })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((error) => {
-        console.error(error)
+        try {
+          const response = await axios.get(`http://localhost:5000/api/orders/find/${user._id}`, {
+                    headers: {
+                            token: `Bearer ${user.accessToken}`
+                    }
+            });
+          console.log('Data obtained successfully:', response.data);
+        } catch (error) {
+          console.error('Error getting data:', error);
+        }
+        };
+        getOrders();
       });
-    };
-    getOrders();
-    }, []);
     
 
 
