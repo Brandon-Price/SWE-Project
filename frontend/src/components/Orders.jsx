@@ -28,7 +28,8 @@ const Orders = (filters, sort) => {
     const [orders, setOrders] = useState([]);
     const [filterSelect, setFilters] = useState([]);
     const searchFilter = useSelector(state => state.searchFilter.content)
-
+    const user = useSelector((state) => state.user.currentUser);
+    /*
     useEffect(() => {
         const getOrders = async () => {
             try {
@@ -44,6 +45,27 @@ const Orders = (filters, sort) => {
         };
         getOrders();
     }, []);
+    */
+
+    useEffect(() => {
+        const getOrders = async () => {
+    axios.get(`http://localhost:5000/api/orders/find/${user._id}`, {
+        userId: user._id,
+      }, {
+        headers: {
+        token: `Bearer ${user.accessToken}`
+      }
+    })
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((error) => {
+        console.error(error)
+      });
+    };
+    getOrders();
+    }, []);
+    
 
 
     useEffect(() => {
