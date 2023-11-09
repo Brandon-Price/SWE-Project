@@ -46,6 +46,7 @@ const OrderHistory = ({user}) => {
             </AdminBar>}
             <Orders filters={filters}/>
             <EmptyContainer/>
+            <EmptyContainer/>
             <Footer/>
         </Container>
     )
