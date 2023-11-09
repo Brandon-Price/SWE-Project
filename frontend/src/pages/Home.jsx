@@ -4,6 +4,7 @@ import Footer from '../components/Footer';
 import React, { useState, useEffect } from 'react';
 import Slider from '../components/Slider';
 import axios from 'axios';
+import {Container, ImageContainer} from '../styles/Home.style.jsx';
 
 function Home() {
     const [products, setProducts] = useState([]);
@@ -19,12 +20,15 @@ function Home() {
     }, []);
 
     return (
-        <div>
+        <Container>
             <Navbar />
             <SubHeader />
+            <ImageContainer>
+                
+            </ImageContainer>
             <Slider products={products} />
             <Footer />
-        </div>
+        </Container>
     );
 }
 
