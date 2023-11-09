@@ -74,12 +74,13 @@ const Orders = (filters, sort) => {
                     }
             });
           console.log('Data obtained successfully:', response.data);
+          setOrders(response.data);
         } catch (error) {
           console.error('Error getting data:', error);
         }
         };
         getOrders();
-      });
+      }, []);
     
 
 
@@ -96,13 +97,13 @@ const Orders = (filters, sort) => {
       }, [sort]);
 
 
-    useEffect(() => {
-        setFilters(
-            orders.filter((order) =>
-            Object.entries(filters).every(([key, value]) => order[key] === value)
-            )
-        );
-    }, [orders, filters]);
+    // useEffect(() => {
+    //     setFilters(
+    //         orders.filter((order) =>
+    //         Object.entries(filters).every(([key, value]) => order[key] === value)
+    //         )
+    //     );
+    // }, [orders, filters]);
 
 
 

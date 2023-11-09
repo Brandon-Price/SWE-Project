@@ -44,7 +44,7 @@ const OrderHistory = ({user}) => {
             <AdminBar onClose={toggleAdminBar}>
                 <AddForm></AddForm>
             </AdminBar>}
-            <Orders/>
+            <Orders />
             <EmptyContainer/>
             <EmptyContainer/>
             <Footer/>
