@@ -28,7 +28,6 @@ const Orders = (filters, sort) => {
     const [orders, setOrders] = useState([]);
     const [filterSelect, setFilters] = useState([]);
     const searchFilter = useSelector(state => state.searchFilter.content)
-    const user = useSelector((state) => state.user.currentUser);
     /*
     useEffect(() => {
         const getOrders = async () => {
