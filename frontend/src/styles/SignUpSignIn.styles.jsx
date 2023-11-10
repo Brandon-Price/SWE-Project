@@ -7,7 +7,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-image: url(https://images.pexels.com/photos/1141853/pexels-photo-1141853.jpeg?cs=srgb&dl=pexels-tae-fuller-1141853.jpg&fm=jpg);
+    background-image: url(https://images.alphacoders.com/913/913958.jpg);
     background-size: cover;
 `
 
@@ -31,10 +31,17 @@ export const RightContainer = styled.div`
 
 export const Wrapper = styled.div`
     width: 300px;
+    height: 380px;
     padding: 20px;
-    background-color: white;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 black;
+    backdrop-filter: blur(8.5px);
     border-radius: 10px;
+    color: white;
     position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 `
 
 export const Title = styled.h1`
@@ -48,31 +55,37 @@ export const Form = styled.form`
     display: row;
     margin: 7px 4px 0px 0px;
     padding: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 `
 
 export const Input = styled.input`
     flex: 1;
     margin: 2px;
-    min-width: 40%;
-`
+    width: 150%;
+    padding: 13px;
+    font-size: 15px;
+    font-weight: 100px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 8px 32px 0 black;
+    outline: none;
+    border: none;
+    border-radius: 2rem;
+    height: 3rem;
 
-export const SocialContainer = styled.div`
-    display: flex;
-`
-
-export const SocialIcon = styled.div`
-    width: 100%;
-    height: 100%;
-    border-radius: 20%;
-    color: black;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    &:focus {
+        display: inline-block;
+        box-shadow: 0 0 0 0.2rem white;
+        backdrop-filter: blur(12rem)
+        border-radius: 2rem;
+    }
 `
 
 export const Button = styled.button`
-    padding: 8px;
+    margin: 12px;
+    padding: 10px;
     font-size: 13px;
     background-color: white;
     border-color: #dd7973;

@@ -56,14 +56,14 @@ const SignUpSignIn = () => {
                     </Form>
                 </LeftContainer>
             </Wrapper>
-            <Line>:</Line>
+            <Line style={{opacity: "0%"}}>:</Line>
             
             <Wrapper>
             <RightContainer>
                     <Title>Already have an account?</Title>
                     <Form>
                         <Input placeholder="Username" onChange={(e) => setUsername(e.target.value)}/>
-                        <Input placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
+                        <Input inputStyle={{color: 'black'}} placeholder="Password" type="password" onChange={(e) => setPassword(e.target.value)}/>
                         {error && <Error>Error has occurred</Error>}
                         <Button onClick={handleSignIn} disabled={isFetching}>Sign In</Button>
                     </Form>
