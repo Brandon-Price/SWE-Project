@@ -18,9 +18,17 @@ export const User = styled.h2`
   margin: 10px 0;
 `;
 
-export const Product = styled.p`
-  font-size: 16px;
+export const ProductDiv = styled.div`
+  
 `;
+
+export const ProductInfo = styled.p`
+  font-size: 16px;
+`
+
+export const ProductImg = styled.img`
+
+`
 
 export const Amount = styled.p`
   font-size: 16px;
