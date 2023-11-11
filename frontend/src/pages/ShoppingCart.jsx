@@ -130,7 +130,7 @@ const ShoppingCart = ({ ifUser }) => {
                             <SummaryItemPrice>$ {(finalTotal - (finalTotal * currDisc)).toFixed(2)}</SummaryItemPrice>
                         </SummaryItem>
                         <StripeCheckout
-                            name = "TBD"
+                            name = "Starbucks Mugs"
                             billingAddress
                             shippingAddress
                             description={`Total $${(finalTotal - (finalTotal * currDisc)).toFixed(2)}`}

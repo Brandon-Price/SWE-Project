@@ -136,7 +136,7 @@ export const Button = styled.button`
     width: 100%;
     padding: 10px;
     font-weight: 600;
-    background-color: black;
+    background-color: #00704A;
     border-color: black;
     cursor: pointer;
     transition: all .5s ease;
@@ -145,6 +145,7 @@ export const Button = styled.button`
 
     &:hover {
         transform: scale(1.05);
+        background-color: #006400;
     }
 `
 

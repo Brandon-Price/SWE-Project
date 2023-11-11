@@ -7,7 +7,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-image: url(https://images.alphacoders.com/913/913958.jpg);
+    background-image: url(sbpexels.jpg);
     background-size: cover;
 `
 
@@ -87,10 +87,9 @@ export const Button = styled.button`
     margin: 12px;
     padding: 10px;
     font-size: 13px;
-    background-color: white;
-    border-color: #dd7973;
+    background-color: #00704A;
     cursor: pointer;
-    color: #dd7973;
+    color: white;
     transition: all .5s ease;
     border-radius: 15px;
     z-index: 4;
@@ -98,7 +97,7 @@ export const Button = styled.button`
 
     &:hover {
         transform: scale(1.1);
-        background-color: #dd7973;
+        background-color: #00704A;
         color: white;
     }
 
