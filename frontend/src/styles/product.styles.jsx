@@ -47,7 +47,7 @@ export const Quantity = styled.p`
 export const Button = styled.button`
   padding: 10px 20px;
   font-size: 16px;
-  background-color: #008000;
+  background-color: #00704a;
   color: #fff;
   border: none;
   border-radius: 5px;

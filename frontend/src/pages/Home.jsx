@@ -4,7 +4,8 @@ import Footer from '../components/Footer';
 import React, { useState, useEffect } from 'react';
 import Slider from '../components/Slider';
 import axios from 'axios';
-import {Container, ImageContainer} from '../styles/Home.style.jsx';
+import { Container, ImageContainer } from '../styles/Home.style.jsx';
+import '../components/custom-carousel.css';
 
 function Home() {
     const [products, setProducts] = useState([]);
@@ -27,6 +28,9 @@ function Home() {
                 
             </ImageContainer>
             <Slider products={products} />
+            <body class="center">
+                <a href="http://localhost:3000/products/" class="shop-now-button">Shop Now</a>
+            </body>
             <Footer />
         </Container>
     );
