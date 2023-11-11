@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+// Added fixed position will mess up footer on other pages
+// Check products page
 export const Container = styled.footer`
   background-color: #00704a;
   color: #fff;
