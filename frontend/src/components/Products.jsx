@@ -72,6 +72,10 @@ const Products = ({ cat, filters, sort }) => {
       setFilters((prev) => [...prev].sort((a, b) => b.price - a.price));
     } else if (sort === "quantity") {
       setFilters((prev) => [...prev].sort((a, b) => b.quantity - a.quantity));
+    } else if (sort === "aTOz") {
+      setFilters((prev) => [...prev].sort((a, b) => a.title.localeCompare(b.title)));
+    } else if (sort === "zTOa") {
+      setFilters((prev) => [...prev].sort((a, b) => b.title.localeCompare(a.title)));
     }
   }, [sort]);
 

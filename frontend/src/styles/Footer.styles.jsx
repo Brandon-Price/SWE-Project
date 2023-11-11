@@ -9,10 +9,6 @@ export const Container = styled.footer`
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  position: fixed;
-  bottom: 0;
-  width: 98%;
-  height: 15%;
 `;
 
 export const Left = styled.div`
