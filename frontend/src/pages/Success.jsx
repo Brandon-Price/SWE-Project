@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
+import { Container, Wrapper, TopContainer, TopText, BottomContainer, BottomText, Button, Logo } from '../styles/Success.styles.jsx'
 import { toRemoveAll } from '../redux/cartRedux.js';
 import axios from "axios";
 
@@ -93,22 +94,23 @@ const Success = () => {
   };
 
     return (
-    <div
-      style={{
-        height: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-        <p>Successfull. Your order is being prepared. We will send an email to {user.email}</p>
-      <button onClick={handleCart} style={{ padding: 10, marginTop: 20 }}>
-        <ButtonLink to="/">
-          Go to Homepage
-        </ButtonLink>
-      </button>
-    </div>
+      <Container>
+        <Wrapper>
+          <TopContainer>
+            <Logo></Logo>
+            <br/>
+            <TopText>Thank You</TopText>
+          </TopContainer>
+          <BottomContainer>
+            <BottomText>Your order is being prepared. We will send an email to {user.email}</BottomText>
+            <Button onClick={handleCart}>
+              <ButtonLink to="/">
+                Go to Homepage
+              </ButtonLink>
+            </Button>
+          </BottomContainer>
+        </Wrapper>
+      </Container>
     )
 }
 
