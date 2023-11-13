@@ -7,39 +7,45 @@ export const Container = styled.div`
 
 
 export const Info = styled.div`
-  width: 100%;
-  text-align: center;
+  max-width: 100%;
+  text-align: left;
   padding: 10px;
 `;
 
 
 export const User = styled.h2`
-  font-size: 18px;
+  font-size: 40px;
   margin: 10px 0;
 `;
 
 export const ProductDiv = styled.div`
-  
+  text-align: left;
 `;
 
 export const ProductInfo = styled.p`
-  font-size: 16px;
+  float: left;
+  font-size: 30px;
+  padding-right: 250px;
 `
 
 export const ProductImg = styled.img`
-
+max-width: 100%;
+height: auto;
+display: block;
+margin: 0 auto;
+  
 `
 
 export const Amount = styled.p`
-  font-size: 16px;
+  font-size: 30px;
 `;
 
 export const Address = styled.p`
-  font-size: 16px;
+  font-size: 30px;
 `;
 
 export const Status = styled.p`
-  font-size: 16px;
+  font-size: 30px;
 `;
 
 export const Button = styled.button`
