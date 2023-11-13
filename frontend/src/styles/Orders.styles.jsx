@@ -1,52 +1,71 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
+  border: 10px solid #00704a;
    padding: 0px;
    margin: 50px;
 `
 
 
 export const Info = styled.div`
-  max-width: 100%;
-  text-align: left;
-  padding: 10px;
+  display: flex;
+  flex-direction: row;
 `;
 
 
 export const User = styled.h2`
+  text-align: center;
   font-size: 40px;
   margin: 10px 0;
 `;
 
 export const ProductDiv = styled.div`
-  text-align: left;
+
+padding: 100px;
 `;
 
 export const ProductInfo = styled.p`
-  float: left;
+font-weight: 1000;
+align-items: center;
+text-align: left;
   font-size: 30px;
-  padding-right: 250px;
 `
 
 export const ProductImg = styled.img`
-max-width: 100%;
-height: auto;
-display: block;
-margin: 0 auto;
-  
+border 9px solid #00704a;
 `
 
+
+export const OrderDiv = styled.div`
+padding 250px;
+align-items: center;
+text-align: center;
+`;
+
 export const Amount = styled.p`
+padding: 20px;
+text-align: center;
   font-size: 30px;
 `;
 
 export const Address = styled.p`
+padding: 20px;
+text-align: center;
   font-size: 30px;
 `;
 
 export const Status = styled.p`
+padding: 20px;
+text-align: center;
   font-size: 30px;
 `;
+
+export const Thanks = styled.p`
+padding: 20px;
+text-align: center;
+  font-size: 30px;
+`;
+
 
 export const Button = styled.button`
   padding: 10px 20px;

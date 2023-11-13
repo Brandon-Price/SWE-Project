@@ -1,22 +1,25 @@
-import {Container, Info, User, ProductDiv, ProductInfo, ProductImg, Amount, Address, Status} from "../styles/Orders.styles.jsx";
+import {Container, Info, User, ProductDiv, ProductInfo, ProductImg, OrderDiv, Amount, Address, Status, Thanks} from "../styles/Orders.styles.jsx";
 
 const Order = ({ order }) => {
     return (
     <Container>
+        <User>User Number: {order.userId}</User>
         <Info>
-            <User>{order.userId}</User>
             <ProductDiv>
             {order.products.map((product, index) => (
                 <div key={index}>
-                    <ProductInfo>{product.title}</ProductInfo>
+                    <ProductInfo>Item: {product.title} Mug</ProductInfo>
+                    <ProductInfo>Quantity: {product.quantity}</ProductInfo>
                     <ProductImg src={product.img}/>
-                    <ProductInfo>{product.quantity}</ProductInfo>
                 </div>
             ))}
             </ProductDiv>
-            <Amount>{order.amount}</Amount>
-            <Address>{order.date}</Address>
-            <Status>{order.status}</Status>
+            <OrderDiv>
+            <Amount>Subtotal: ${order.amount}</Amount>
+            <Address>Date: {order.date}</Address>
+            <Status>Order Status:{order.status}</Status>
+            <Thanks>Thank you for Shopping with us!</Thanks>
+            </OrderDiv>
         </Info> 
     </Container> 
     )
