@@ -2,9 +2,8 @@ import {Close, Search, LocalMallOutlined, ExitToApp} from '@material-ui/icons';
 import {Badge} from '@material-ui/core';
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from '../redux/userSlice.js';
-import axios from 'axios';
 import { useLocation, useNavigate } from "react-router-dom";
-
+import { useEffect } from 'react';
 import {Title, MenuLink, Container, Wrapper, Left, SearchContainer, Input, Center, Right, Logo, Menu, Line} from "../styles/Navbar.styles.jsx"
 import { updateFilter } from '../redux/searchFilter.js';
 
@@ -16,6 +15,11 @@ const Navbar = () => {
     const user = useSelector((state) => state.user.currentUser);
     const cartItems = useSelector(state => state.cart.quantity);
     const searchFilter = useSelector(state => state.searchFilter)
+
+    // When Clicking on an item there is weird case of the subheader not being visible because the users position in the page isn't updated
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
 
     // handle search routing
     let navigate = useNavigate();

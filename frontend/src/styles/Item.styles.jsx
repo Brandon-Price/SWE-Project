@@ -26,6 +26,7 @@ export const Image = styled.img`
 
 export const Title = styled.h1`
     font-weight: 200;
+    font-size: 50px;
 `
 
 export const Desc = styled.p`
