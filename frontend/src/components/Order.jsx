@@ -1,9 +1,34 @@
-import {Container, Info, User, ProductDiv, ProductInfo, ProductImg, OrderDiv, Amount, Address, Status, Thanks} from "../styles/Orders.styles.jsx";
+import {BottomContainer, Container, EmptyContainer, MiddleContainer, ProductContainer, ProductImg, ProductInfo, TopContainer, TopInfo, } from "../styles/Order.styles.jsx";
 
 const Order = ({ order }) => {
     return (
     <Container>
-        <User>User Number: {order.userId}</User>
+        <TopContainer>
+            <TopInfo>Order ID: {order._id}</TopInfo>
+            <TopInfo>Order Status: {order.status}</TopInfo>
+        </TopContainer>
+        <MiddleContainer>
+            <ProductContainer>
+                {order.products.map((product, index) => (
+                    <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", }} 
+                    key={index}>
+                        <ProductImg src={product.img}/>
+                        <ProductInfo style={{margin: "10px"}} >Item: {product.title} Mug</ProductInfo>
+                        <ProductInfo>Quantity: {product.quantity}</ProductInfo>
+                    </div>
+                ))}
+            </ProductContainer>
+        </MiddleContainer>
+        <EmptyContainer></EmptyContainer>
+        <BottomContainer>
+            <TopInfo>Ordered On: {order.date}</TopInfo>
+            <TopInfo>Order Subtotal: ${order.amount}</TopInfo>
+        </BottomContainer>
+    </Container> 
+    )
+}
+
+{/* <Amount>Subtotal: ${order.amount}</Amount>
         <Info>
             <ProductDiv>
             {order.products.map((product, index) => (
@@ -15,14 +40,9 @@ const Order = ({ order }) => {
             ))}
             </ProductDiv>
             <OrderDiv>
-            <Amount>Subtotal: ${order.amount}</Amount>
             <Address>Date: {order.date}</Address>
             <Status>Order Status:{order.status}</Status>
-            <Thanks>Thank you for Shopping with us!</Thanks>
             </OrderDiv>
-        </Info> 
-    </Container> 
-    )
-}
+</Info>  */}
 
 export default Order

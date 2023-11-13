@@ -1,8 +1,14 @@
-import {Container} from "../styles/ItemList.styles.jsx";
 import Order from "./Order";
 import axios from "axios";
+import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
 
 const Orders = ({filters, sort}) => {
 
