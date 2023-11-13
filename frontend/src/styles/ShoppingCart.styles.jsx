@@ -52,7 +52,7 @@ export const ProductInfo = styled.div`
 `
 
 export const Image = styled.img`
-    width: 200px;
+    width: 320px;
 `
 
 export const ProductDetails = styled.span`

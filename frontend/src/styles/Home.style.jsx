@@ -50,10 +50,16 @@ export const Button = styled.button`
     background color: white;
 `
 
+export const AboutUs = styled.div`
+    display: flex;
+    width: 90vw;
+    flex-direction: row;
+    text-align: center;
+`
+
 export const DescriptionContainer = styled.div`
     align-items: center;
     justify-content: center;
-    display: flex;
     text-align: center;
 `
 
@@ -68,4 +74,17 @@ export const DescTitle = styled.h1`
 export const Description = styled.span`
     color: black; 
     font-size: 25px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    
+`
+
+export const SmallImage = styled.img`
+   padding: 100px;
+`
+
+export const EmptyContainer = styled.div`
+    height: 30px;
+    width: 100%;
 `

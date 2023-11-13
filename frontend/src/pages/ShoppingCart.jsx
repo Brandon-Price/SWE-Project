@@ -90,8 +90,7 @@ const ShoppingCart = ({ ifUser }) => {
                             <ProductInfo>
                                 <Image src={product.img}/>
                                 <ProductDetails>
-                                    <ProductName><b>Item: </b>{product.title}</ProductName>
-                                    <ProductID><b>Item ID: </b>{product._id}</ProductID>
+                                    <ProductName><b>Item Name: </b>{product.title}</ProductName>
                                 </ProductDetails>
                             </ProductInfo>
                             <ProductPrice>
