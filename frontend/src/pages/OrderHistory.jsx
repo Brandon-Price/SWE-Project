@@ -32,7 +32,7 @@ const OrderHistory = ({user}) => {
                     <Select name="sort" onChange = {(e) => setSort(e.target.value)}>
                         <Option value="Last 30">Last 30 Days</Option>
                         <Option value="Last 90">Last 90 Days</Option>
-                        <Option value="User ID">User ID</Option>
+                        <Option value="Order ID">User ID</Option>
                     </Select>
                 </Filter>
             </FilterContainer>

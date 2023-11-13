@@ -14,21 +14,13 @@ const Orders = ({filters, sort}) => {
 
     function dateSort(list, days)
     {
-        let today = new Date();
-        let sorted = [];
-        for(let x of list)
-        {
-            let postedDate = new Date(x.timestamp);
-            let dateDifference = today - postedDate;
-            let totalDifference = dateDifference/ (86400000);
-            if(totalDifference <= days)
-            {
-                sorted.push(x);
-            }
+        const today = new Date();
+        return list.filter((order) => {
 
-        }
-
-        return sorted;
+          let postedDate = new Date(order.timestamp);
+          let dateDifference = today - postedDate;
+          return dateDifference <= days;
+        });
     }
     const user = useSelector((state) => state.user.currentUser);
     const [orders, setOrders] = useState([]);
@@ -59,16 +51,24 @@ const Orders = ({filters, sort}) => {
       }, [orders, filters]);
 
     useEffect(() => {
+
+        const dateSort = () => {
         if (sort === "Last 30") 
         {
-          setFilters((prev) => [...prev].sort((a, b) => a.date));
+          setFilters(dateSort(orders, 30));
         } else if (sort === "Last 90") 
         {
-          setFilters((prev) => [...prev].sort((a, b) => b.price - a.price));
-        } else if (sort === "User ID") {
-          setFilters((prev) => [...prev].sort((a, b) => b.quantity - a.quantity));
+          setFilters(dateSort(orders, 90));
+        } else if (sort === "Order ID") {
+          setFilters((prev) => [...prev].sort((a, b) => a.order._id.localeCompare(b.order._id)));
         }
-      }, [sort]);
+        else
+        {
+          setFilters(orders);
+        }
+
+      };
+      }, [orders, sort]);
 
 
     return (
