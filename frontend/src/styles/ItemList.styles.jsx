@@ -76,3 +76,18 @@ export const Button = styled.button`
         color: white;
     }
 `
+
+export const ItemContainer = styled.div`
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+`
+
+export const ProductContainer = styled.div`
+    width: 80vw;
+    align-items: center
+    justify-content: center;
+`

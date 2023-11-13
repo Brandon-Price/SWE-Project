@@ -2,7 +2,7 @@ import Navbar from "../components/Navbar";
 import SubHeader from "../components/SubHeader";
 import Footer from "../components/Footer";
 import Products from "../components/Products";
-import {Container, FilterContainer, Filter, FilterText, Select, Option, EmptyContainer, AdminBar, AdminButton} from "../styles/ItemList.styles";
+import {Container, FilterContainer, Filter, FilterText, Select, Option, EmptyContainer, AdminBar, AdminButton, ProductContainer, ItemContainer} from "../styles/ItemList.styles";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import AddForm from "../components/AddForm";
@@ -57,7 +57,11 @@ const ItemList = ({user, setUser}) => {
             <AdminBar onClose={toggleAdminBar}>
                 <AddForm></AddForm>
             </AdminBar>}
-            <Products cat = {cat} filters={filters} sort={sort}/>
+            <ItemContainer>
+                <ProductContainer>
+                    <Products cat = {cat} filters={filters} sort={sort}/>
+                </ProductContainer>
+            </ItemContainer>
             <EmptyContainer/>
             <Footer/>
         </Container>
