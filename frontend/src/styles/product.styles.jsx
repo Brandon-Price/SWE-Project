@@ -22,7 +22,7 @@ export const Container = styled.div`
 export const Image = styled.img`
   height: 220px;
   object-fit: contain;
-  max-width: 100%;
+  width: 11vw;
 `;
 
 export const Info = styled.div`

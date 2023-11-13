@@ -87,7 +87,7 @@ export const ItemContainer = styled.div`
 `
 
 export const ProductContainer = styled.div`
-    width: 80vw;
+    width: 85vw;
     align-items: center
     justify-content: center;
 `
