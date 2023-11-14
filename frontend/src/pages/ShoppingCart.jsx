@@ -16,6 +16,7 @@ import { toRemove } from "../redux/cartRedux";
 const ShoppingCart = ({ ifUser }) => {
     const dispatch = useDispatch()
     const cart = useSelector(state => state.cart)
+    const user = useSelector((state) => state.user.currentUser);
     const shipping = 8.99;
     // entered discount code
     let discCode = "";
@@ -130,6 +131,7 @@ const ShoppingCart = ({ ifUser }) => {
                         </SummaryItem>
                         <StripeCheckout
                             name = "Starbucks Mugs"
+                            email = {user.email}
                             billingAddress
                             shippingAddress
                             description={`Total $${(finalTotal - (finalTotal * currDisc)).toFixed(2)}`}
