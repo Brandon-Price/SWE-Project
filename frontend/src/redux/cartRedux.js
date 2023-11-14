@@ -13,19 +13,19 @@ const cartSlice = createSlice({
     // https://www.youtube.com/watch?v=_shA5Xwe8_4
     reducers: {
         addProduct: (state, action) => {
-            state.quantity += 1;
+            state.quantity += action.payload.quantity;
             state.products.push(action.payload);
             state.total += action.payload.price * action.payload.quantity;
         },
         toRemove:(state, action) =>{
-            const { id } = action.payload._id;
+            const id = action.payload._id;
             if (state.quantity > 0){
-                state.quantity -= 1;
+                state.quantity -= action.payload.quantity;
             }
 
             state.total -= action.payload.price * action.payload.quantity;
 
-            state.products = state.products.filter(item => item.id !== id);
+            state.products = state.products.filter(item => item._id !== id);
         },
         toRemoveAll:(state, action) =>{
             const { id } = action.payload;

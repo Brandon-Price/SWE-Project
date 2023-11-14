@@ -98,7 +98,7 @@ const ShoppingCart = ({ ifUser }) => {
                                 <PriceContainer>
                                     <Quantity>{product.quantity}</Quantity>
                                 </PriceContainer>
-                                <Price>$ {product.price * product.quantity}</Price>
+                                <Price>$ {(product.price * product.quantity).toFixed(2)}</Price>
                             </ProductPrice>
                             <DeleteOutline style={{cursor: "pointer"}} onClick={() => dispatch(toRemove(product))}/>
                         </Product>))}
