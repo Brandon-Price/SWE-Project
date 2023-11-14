@@ -18,13 +18,12 @@ const OrderHistory = ({user}) => {
             <SubHeader/>
             <FilterContainer>
                 <Filter>
-                    
                 </Filter>
                 <Filter>
                     <FilterText>Product Sort:</FilterText>
                     <Select name="sort" onChange = {(e) => setSort(e.target.value)}>
                         <Option value="Oldest">Oldest Descending</Option>
-                        <Option value="Newest">Newest Ascending</Option>
+                        <Option value="Newest">Newest Descending</Option>
                     </Select>
                 </Filter>
             </FilterContainer>

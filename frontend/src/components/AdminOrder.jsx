@@ -1,4 +1,4 @@
-import {BottomContainer, Container, EmptyContainer, MiddleContainer, ProductContainer, ProductImg, ProductInfo, TopContainer, TopInfo, } from "../styles/Order.styles.jsx";
+import {BottomContainer, Container, EmptyContainer, MiddleContainer, ProductContainer, ProductImg, ProductInfo, TopContainer, TopInfo, } from "../styles/AdminOrder.styles.jsx";
 
 const AdminOrder = ({ order }) => {
     return (
@@ -6,24 +6,22 @@ const AdminOrder = ({ order }) => {
         <TopContainer>
             <TopInfo>Order ID: {order._id}</TopInfo>
             <TopInfo>Order Status: {order.status}</TopInfo>
+            <TopInfo>Ordered On: {order.date}</TopInfo>
+            <TopInfo>UserID: {order.userId}</TopInfo>
         </TopContainer>
         <MiddleContainer>
             <ProductContainer>
+                Items Purchased:
                 {order.products.map((product, index) => (
-                    <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", }} 
+                    <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center"}} 
                     key={index}>
-                        <ProductImg src={product.img}/>
-                        <ProductInfo style={{margin: "0px 140px"}} >Item: {product.title} Mug</ProductInfo>
-                        <ProductInfo>Quantity: {product.quantity}</ProductInfo>
+                        <ProductInfo style={{}} >Item Purchased: {product.title} Mug</ProductInfo>
+                        <ProductInfo style={{margin: "0px 70px"}}>Quantity Purchased: {product.quantity}</ProductInfo>
                     </div>
                 ))}
+                <TopInfo style={{margin: "8px 0px 0px 0px", borderTop: "1px solid black"}}>Order Subtotal: ${order.amount}</TopInfo>
             </ProductContainer>
         </MiddleContainer>
-        <EmptyContainer></EmptyContainer>
-        <BottomContainer>
-            <TopInfo>Ordered On: {order.date}</TopInfo>
-            <TopInfo>Order Subtotal: ${order.amount}</TopInfo>
-        </BottomContainer>
     </Container> 
     )
 }
