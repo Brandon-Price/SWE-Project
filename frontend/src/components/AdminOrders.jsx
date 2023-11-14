@@ -11,16 +11,6 @@ export const Container = styled.div`
 `
 
 const AdminOrders = ({filters, sort}) => {
-    function dateSort(list, days)
-    {
-        const today = new Date();
-        return list.filter((order) => {
-
-          let postedDate = new Date(order.timestamp);
-          let dateDifference = today - postedDate;
-          return dateDifference <= days;
-        });
-    }
     const user = useSelector((state) => state.user.currentUser);
     const [orders, setOrders] = useState([]);
     const [filterSelect, setFilters] = useState([]);
