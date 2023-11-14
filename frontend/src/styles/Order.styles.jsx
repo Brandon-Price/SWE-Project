@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
-  border: 3px solid gray;
+  border: 3px solid #006241;
   border-radius: 25px;
   min-height: 500px;
   width: 50vw;
@@ -15,8 +15,8 @@ export const TopContainer = styled.div`
   display: flex;
   padding: 15px;
   justify-content: space-around;
-  background: lightgray;
-  border-bottom: 1px solid gray;
+  background: #00754A;
+  border-bottom: 1px solid #00754A;
 `
 
 export const TopInfo = styled.span`
@@ -50,7 +50,7 @@ export const BottomContainer = styled.div`
   display: flex;
   padding: 15px;
   justify-content: space-around;
-  background: lightgray;
+  background: #d4e9e2;
   border-top: 1px solid gray
 `
 

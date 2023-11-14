@@ -13,7 +13,7 @@ const Order = ({ order }) => {
                     <div style={{display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", }} 
                     key={index}>
                         <ProductImg src={product.img}/>
-                        <ProductInfo style={{margin: "10px"}} >Item: {product.title} Mug</ProductInfo>
+                        <ProductInfo style={{margin: "0px 140px"}} >Item: {product.title} Mug</ProductInfo>
                         <ProductInfo>Quantity: {product.quantity}</ProductInfo>
                     </div>
                 ))}
@@ -27,22 +27,5 @@ const Order = ({ order }) => {
     </Container> 
     )
 }
-
-{/* <Amount>Subtotal: ${order.amount}</Amount>
-        <Info>
-            <ProductDiv>
-            {order.products.map((product, index) => (
-                <div key={index}>
-                    <ProductInfo>Item: {product.title} Mug</ProductInfo>
-                    <ProductInfo>Quantity: {product.quantity}</ProductInfo>
-                    <ProductImg src={product.img}/>
-                </div>
-            ))}
-            </ProductDiv>
-            <OrderDiv>
-            <Address>Date: {order.date}</Address>
-            <Status>Order Status:{order.status}</Status>
-            </OrderDiv>
-</Info>  */}
 
 export default Order

@@ -11,7 +11,6 @@ export const Container = styled.div`
 `
 
 const Orders = ({filters, sort}) => {
-
     function dateSort(list, days)
     {
         const today = new Date();
@@ -51,24 +50,12 @@ const Orders = ({filters, sort}) => {
       }, [orders, filters]);
 
     useEffect(() => {
-
-        const dateSort = () => {
-        if (sort === "Last 30") 
-        {
-          setFilters(dateSort(orders, 30));
-        } else if (sort === "Last 90") 
-        {
-          setFilters(dateSort(orders, 90));
-        } else if (sort === "Order ID") {
-          setFilters((prev) => [...prev].sort((a, b) => a.order._id.localeCompare(b.order._id)));
-        }
-        else
-        {
-          setFilters(orders);
-        }
-
-      };
-      }, [orders, sort]);
+          if (sort === "Oldest") {
+              setFilters((prev) => [...prev].sort((a, b) => a.date.localeCompare(b.date)));
+          } else if (sort === "Newest") {
+            setFilters((prev) => [...prev].sort((a, b) => -a.date.localeCompare(b.date)));
+          }
+      }, [sort]);
 
 
     return (

@@ -30,9 +30,8 @@ const OrderHistory = ({user}) => {
                 <Filter>
                     <FilterText>Product Sort:</FilterText>
                     <Select name="sort" onChange = {(e) => setSort(e.target.value)}>
-                        <Option value="Last 30">Last 30 Days</Option>
-                        <Option value="Last 90">Last 90 Days</Option>
-                        <Option value="Order ID">User ID</Option>
+                        <Option value="Oldest">Oldest Descending</Option>
+                        <Option value="Newest">Newest Ascending</Option>
                     </Select>
                 </Filter>
             </FilterContainer>
@@ -45,7 +44,6 @@ const OrderHistory = ({user}) => {
                 <AddForm></AddForm>
             </AdminBar>}
             <Orders filters ={filters} sort={sort}/>
-            <EmptyContainer/>
             <EmptyContainer/>
             <Footer/>
         </Container>
