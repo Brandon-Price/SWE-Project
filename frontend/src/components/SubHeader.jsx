@@ -5,7 +5,8 @@ import {MenuLink, Container, Wrapper, Left, Right, Menu, Menu2} from "../styles/
 
 const SubHeader = () => {
     const dispatch = useDispatch();
-    const searchFilter = useSelector(state => state.searchFilter)
+    const searchFilter = useSelector(state => state.searchFilter);
+    const user = useSelector((state) => state.user.currentUser);
 
     const handleProductClick = () => {
         dispatch(updateFilter(""));
@@ -21,9 +22,15 @@ const SubHeader = () => {
                     <MenuLink to="/products/">
                         <Menu onClick={() => handleProductClick()}>Products</Menu>
                     </MenuLink>
+                {user != null && user.isAdmin ?    
+                    <MenuLink to="/admin">
+                        <Menu>Business Orders</Menu>
+                    </MenuLink>
+                :   
                     <MenuLink to="/order-history">
                         <Menu>Order History</Menu>
                     </MenuLink>
+                }
                 </Left>
                 <Right>
                     <InfoOutlined style ={{color: "white", fontSize:20}}/>

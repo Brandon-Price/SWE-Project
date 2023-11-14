@@ -12,6 +12,7 @@ import {
   Routes,
 } from "react-router-dom";
 import { useSelector } from "react-redux";
+import AdminOrderHistory from "./pages/AdminOrderHistory";
 
 const App = () => {
   const user = useSelector((state) => state.user.currentUser);
@@ -24,6 +25,7 @@ const App = () => {
             <Route path="/products/:id" element={<Item/>}/>
             <Route path="/help-center" element={<Help/>}/>
             <Route path="/order-history" element={<OrderHistory/>}/>
+            <Route path="/admin" element={<AdminOrderHistory/>}/>
             <Route path="/cart" element={user ? <ShoppingCart/> : <SignUpSignIn/>}/>
             <Route path="/account-log-in-sign-up" element={user ? <Home/> : <SignUpSignIn/>}/>
             <Route path="/success" element={<Success/>}/>

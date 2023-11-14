@@ -1,4 +1,4 @@
-import Order from "./Order";
+import AdminOrder from "./AdminOrder";
 import axios from "axios";
 import styled from "styled-components";
 import { useState, useEffect } from "react";
@@ -10,7 +10,7 @@ export const Container = styled.div`
   align-items: center;
 `
 
-const Orders = ({filters, sort}) => {
+const AdminOrders = ({filters, sort}) => {
     function dateSort(list, days)
     {
         const today = new Date();
@@ -28,7 +28,7 @@ const Orders = ({filters, sort}) => {
     useEffect(() => {
         const getOrders = async () => {
         try {
-          const response = await axios.get(`http://localhost:5000/api/orders/find/${user._id}`, {
+          const response = await axios.get(`http://localhost:5000/api/orders/`, {
                     headers: {
                             token: `Bearer ${user.accessToken}`
                     }
@@ -61,10 +61,10 @@ const Orders = ({filters, sort}) => {
     return (
     <Container>
       {filterSelect
-        ? filterSelect.map((order) => <Order order={order} key={order._id} />)
-        : orders.map((order) => <Order order={order} key={order._id} />)}
+        ? filterSelect.map((order) => <AdminOrder order={order} key={order._id} />)
+        : orders.map((order) => <AdminOrder order={order} key={order._id} />)}
     </Container>
     );
 };
 
-export default Orders
+export default AdminOrders
