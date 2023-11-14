@@ -18,13 +18,12 @@ const cartSlice = createSlice({
             state.total += action.payload.price * action.payload.quantity;
         },
         toRemove:(state, action) =>{
-
+            const { id } = action.payload._id;
             if (state.quantity > 0){
                 state.quantity -= 1;
             }
 
             state.total -= action.payload.price * action.payload.quantity;
-            const { id } = action.payload;
 
             state.products = state.products.filter(item => item.id !== id);
         },
