@@ -108,7 +108,7 @@ const ShoppingCart = ({ ifUser }) => {
                         <SummaryTitle>Order Details</SummaryTitle>
                         <SummaryItem>
                             <SummaryItemText>Subtotal: </SummaryItemText>
-                            <SummaryItemPrice>$ {cart.total.toFixed(2)}</SummaryItemPrice>
+                            <SummaryItemPrice>$ {Math.abs(cart.total.toFixed(2))}</SummaryItemPrice>
                         </SummaryItem>
                         <SummaryItem>
                             <SummaryItemText>Flat Rate Shipping: </SummaryItemText>

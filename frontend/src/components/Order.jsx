@@ -22,7 +22,7 @@ const Order = ({ order }) => {
         <EmptyContainer></EmptyContainer>
         <BottomContainer>
             <TopInfo>Ordered On: {order.date}</TopInfo>
-            <TopInfo>Order Subtotal: ${order.amount}</TopInfo>
+            <TopInfo>Order Subtotal: ${(order.amount).toFixed(2)}</TopInfo>
         </BottomContainer>
     </Container> 
     )
