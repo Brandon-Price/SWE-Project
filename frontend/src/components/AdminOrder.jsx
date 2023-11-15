@@ -19,7 +19,7 @@ const AdminOrder = ({ order }) => {
                         <ProductInfo style={{margin: "0px 70px"}}>Quantity Purchased: {product.quantity}</ProductInfo>
                     </div>
                 ))}
-                <TopInfo style={{margin: "8px 0px 0px 0px", borderTop: "1px solid black"}}>Order Subtotal: ${order.amount}</TopInfo>
+                <TopInfo style={{margin: "8px 0px 0px 0px", borderTop: "1px solid black"}}>Order Subtotal: ${(order.amount).toFixed(2)}</TopInfo>
             </ProductContainer>
         </MiddleContainer>
     </Container> 
