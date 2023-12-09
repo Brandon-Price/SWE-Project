@@ -1,7 +1,7 @@
 # SWE-Project
 Software Engineering Group Project
 Short Demo
-![Demo Animation](../assets/demo.gif?raw=true)
+![Demo Animation](assets/demo.gif?raw=true)
 
 -----------------------------------
 For our project if you don't have an IDE of preference use Visual Studio Code. <br/>
